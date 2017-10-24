@@ -1,5 +1,8 @@
 .jumbotron{ margin-top: 150px;}
-/*.btn{background-color:red;}*/
-.container{
-
+/*.btn{background-color:red;}*/;
+.container{box-shadow: 10px 10px 5px rgba(6, 1, 1, 0.43);
+background-color: red;
+}
+#first{
+   box-shadow: 10px 10px 5px rgba(6, 1, 1, 0.43);
 }
