@@ -30,21 +30,21 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cliente <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li class=""><a>Cadastro Fisico</a></li>
-                                <li class=""><a>Cadastro Juridico</a></li> 
+                                <li class=""><a href="CadastroDeClienteFisico">Cadastro Fisico</a></li>
+                                <li class=""><a href="CadastroDeClienteJuridico">Cadastro Juridico</a></li> 
 
                                 <li class=""><a>Consultar</a></li>
 
                             </ul>
                         </li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Produto <span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Automovel <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Cadastrar</a></li>
+                                <li><a href="CadastroDeAutomovel">Cadastrar</a></li>
                                 <li><a href="#">Consultar </a></li>
                             </ul>
                         </li>
-                        <li><a href="#">Efetuar Venda</a></li>
+                        <li><a href="Locacao">Efetuar Venda</a></li>
                         <li><a href="#">Relatorio</a></li>
                         <li><a href="criarLogin">Novo Login</a></li>
                     </ul>
@@ -54,7 +54,7 @@
                             <a  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li></li>
-                                <li><a>Alterar senha</a></li>
+                                <li><a href="AlterarLogin">Alterar senha</a></li>
                                 <li><a >Sair</a></li>
                             </ul>
                         </li>
@@ -84,7 +84,7 @@
                             <div class="form-group">
                                 <label for="senha" class="col-sm-2 control-label">Senha</label>
                                 <div class="col-sm-10">
-                                    <input type="password" class="form-control" id="senha" placeholder="senha" name="password">
+                                    <input type="password" class="form-control" id="senha" placeholder="Senha" name="password">
                                 </div>
                             </div>
                             <div class="form-group">

@@ -8,8 +8,8 @@
           <link href="css/home.css" rel="stylesheet">
         <title>Home</title>
     </head>
-    <body>
- <nav class="navbar navbar-default">
+    <body style="background-image: url(${pageContext.request.contextPath}/img/fundo-site.jpg);">
+ <nav class="navbar navbar-default" style="background-image:none;" >
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -29,21 +29,21 @@
          <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cliente <span class="caret"></span></a>
           <ul class="dropdown-menu">
-              <li class=""><a>Cadastro Fisico</a></li>
-              <li class=""><a>Cadastro Juridico</a></li> 
+              <li class=""><a href="CadastroDeClienteFisico">Cadastro Fisico</a></li>
+              <li class=""><a href="CadastroDeClienteJuridico">Cadastro Juridico</a></li> 
          
              <li class=""><a>Consultar</a></li>
            
           </ul>
          </li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Produto <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Automovel <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Cadastrar</a></li>
+            <li><a href="CadastroDeAutomovel">Cadastrar</a></li>
             <li><a href="#">Consultar </a></li>
           </ul>
         </li>
-       <li><a href="#">Efetuar Venda</a></li>
+       <li><a href="Locacao">Efetuar Venda</a></li>
         <li><a href="#">Relatorio</a></li>
          <li><a href="criarLogin">Novo Login</a></li>
       </ul>
@@ -53,7 +53,7 @@
           <a  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li></li>
-            <li><a>Alterar senha</a></li>
+            <li><a href="AlterarLogin">Alterar senha</a></li>
             <li><a >Sair</a></li>
           </ul>
         </li>

@@ -1,5 +1,4 @@
 
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -45,7 +44,7 @@
                                 <li><a href="#">Consultar </a></li>
                             </ul>
                         </li>
-                        <li><a href="#">Efetuar Venda</a></li>
+                        <li><a href="Locacao">Efetuar Venda</a></li>
                         <li><a href="#">Relatorio</a></li>
                         <li><a href="criarLogin">Novo Login</a></li>
                     </ul>
