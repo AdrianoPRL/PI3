@@ -1,6 +1,5 @@
 package br.com.candt.model;
 
-import java.util.Date;
 
 public class Cliente {
 
