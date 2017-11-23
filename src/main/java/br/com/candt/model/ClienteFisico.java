@@ -6,7 +6,7 @@ public class ClienteFisico extends Cliente {
 
     private String nomeCompleto;
     private String CPF;
-    private Date dataNasc;
+    private String dataNasc;
     private String sexo;
 
     public String getSexo() {
@@ -33,20 +33,20 @@ public class ClienteFisico extends Cliente {
         this.CPF = CPF;
     }
 
-    public Date getDataNasc() {
+    public String getDataNasc() {
         return dataNasc;
     }
 
-    public void setDataNasc(Date dataNasc) {
+    public void setDataNasc(String dataNasc) {
         this.dataNasc = dataNasc;
     }
 
     public ClienteFisico(){
     super();
     }
-    public ClienteFisico(Cnh CNH, String end, String UF, String complemento, String bairro, String telefone,
-            String email, String nomeCompleto, String CPF, Date dataNasc,String sexo) {
-        super(CNH, end, UF, complemento, bairro, telefone, email);
+    public ClienteFisico( String end, String UF, String complemento, String bairro, String telefone,
+            String email, String nomeCompleto, String CPF, String dataNasc,String sexo,String numeroCnh,String categoriaCnh,String cidade,String numero,String CEP) {
+        super(end, UF, complemento, bairro, telefone, email,numeroCnh,categoriaCnh,cidade,numero,CEP);
         this.nomeCompleto = nomeCompleto;
         this.CPF = CPF;
         this.dataNasc=dataNasc;

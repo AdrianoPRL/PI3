@@ -1,0 +1,23 @@
+.container{
+    
+    border-radius: 10px;
+background-color:#F5F5F5;
+    width: 80%;
+    height:50%;
+    margin-top:5%;
+     z-index:3;
+     bottom:0;
+
+     box-shadow: 8px 8px 5px #888888;
+}
+
+
+#chk:checked~#principal{
+    transform:translateX(300px);
+    z-index:1;
+}
+
+#chk2:checked~#navright{
+    transform:translateX(-300px);
+    z-index:2;
+}

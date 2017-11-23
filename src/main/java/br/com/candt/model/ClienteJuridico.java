@@ -1,8 +1,12 @@
 package br.com.candt.model;
 
+import java.util.Date;
+
 public class ClienteJuridico extends Cliente {
 
     private String razaoSocial;
+    private String nomeFantasia;
+    private String inscricaoEstadual;
     private String CNPJ;
 
     public String getRazaoSocial() {
@@ -25,12 +29,30 @@ public class ClienteJuridico extends Cliente {
         super();
     }
 
-    public ClienteJuridico(Cnh CNH, String end, String UF, String complemento, String bairro, String telefone,
-            String email, String razaoSocial, String CNPJ) {
-        super(CNH, end, UF, complemento, bairro, telefone, email);
+    public ClienteJuridico(String end, String UF, String complemento, String bairro, String telefone,
+            String email, String razaoSocial,String nomeFantasia,String inscricaoEstadual,String CNPJ, String numeroCnh, String categoriaCnh, String cidade, String numero, String CEP) {
+        super(end, UF, complemento, bairro, telefone, email, numeroCnh, categoriaCnh, cidade, numero, CEP);
         this.razaoSocial = razaoSocial;
         this.CNPJ = CNPJ;
+        this.inscricaoEstadual=inscricaoEstadual;
+        this.nomeFantasia=nomeFantasia;
 
+    }
+
+    public String getNomeFantasia() {
+        return nomeFantasia;
+    }
+
+    public void setNomeFantasia(String nomeFantasia) {
+        this.nomeFantasia = nomeFantasia;
+    }
+
+    public String getInscricaoEstadual() {
+        return inscricaoEstadual;
+    }
+
+    public void setInscricaoEstadual(String inscricaoEstadual) {
+        this.inscricaoEstadual = inscricaoEstadual;
     }
 
 }

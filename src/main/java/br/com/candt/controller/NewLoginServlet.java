@@ -10,6 +10,9 @@ import br.com.candt.model.LoginDAO;
 import br.com.candt.model.UserSistem;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -40,7 +43,11 @@ public class NewLoginServlet extends HttpServlet {
         user.setNomeCompleto(nome);
         user.setHashSenha(senha);
         LoginDAO dao = new LoginDAO();
+    try {
         dao.incluirComTransacao(user);
+    } catch (SQLException ex) {
+        Logger.getLogger(NewLoginServlet.class.getName()).log(Level.SEVERE, null, ex);
+    }
         
     }
 }

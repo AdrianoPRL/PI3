@@ -1,41 +1,49 @@
 package br.com.candt.model;
 
+import java.util.Date;
 
 public class Cliente {
 
-    private Cnh CNH;
+//    private Cnh CNH;
     private String end;
     private String UF;
     private String complemento;
     private String bairro;
     private String telefone;
     private String email;
-
+    private String cidade;
+    private String numeroCnh;
+       private String CEP;
+    private String categoriaCnh;
+      private String numero;
     public Cliente() {
 
     }
 
-    public Cliente(Cnh CNH, String end, String UF, String complemento, String bairro, String telefone,
-            String email) {
-        this.CNH=CNH;
+    public Cliente( String end, String UF, String complemento, String bairro, String telefone,
+            String email,String numeroCnh,String categoriaCnh,String cidade,String numero,String CEP) {
+        this.CEP=CEP;
         this.end = end;
         this.UF = UF;
         this.complemento = complemento;
         this.bairro = bairro;
         this.telefone = telefone;
         this.email = email;
-
+        this.cidade=cidade;
+        this.numeroCnh=numeroCnh;
+        this.categoriaCnh=categoriaCnh;
+        this.numero=numero;
     }
 
-    public Cnh getCNH() {
-        return CNH;
+    public String getCEP() {
+        return CEP;
     }
-
-    /**
-     * @param CNH the CNH to set
-     */
-    public void setCNH(Cnh CNH) {
-        this.CNH = CNH;
+//
+//    /**
+//     * @param CNH the CNH to set
+//     */
+    public void setCEP(String CEP) {
+        this.CEP = CEP;
     }
 
     /**
@@ -114,6 +122,46 @@ public class Cliente {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+//    public Date getValCnh() {
+//        return valCnh;
+//    }
+//
+//    public void setValCnh(Date valCnh) {
+//        this.valCnh = valCnh;
+//    }
+
+    public String getNumeroCnh() {
+        return numeroCnh;
+    }
+
+    public void setNumeroCnh(String numeroCnh) {
+        this.numeroCnh = numeroCnh;
+    }
+
+    public String getCategoriaCnh() {
+        return categoriaCnh;
+    }
+
+    public void setCategoriaCnh(String categoriaCnh) {
+        this.categoriaCnh = categoriaCnh;
+    }
+
+    public String getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
+    public String getNumero() {
+        return numero;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
     }
     
 }
