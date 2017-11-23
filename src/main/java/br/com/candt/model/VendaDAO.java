@@ -7,6 +7,7 @@ package br.com.candt.model;
 
 import br.com.candt.model.Automovel;
 import br.com.candt.model.BDConexao;
+import br.com.candt.model.Venda;
 import static br.com.candt.model.BDConexao.getConnection;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -16,9 +17,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class AutomovelDAO {
-
-    public List<Automovel> listar() {
+public class VendaDAO {
+      public List<Automovel> listar() {
 
         String query = "SELECT * FROM Automovel";
         List<Automovel> lista = new ArrayList();
@@ -44,7 +44,6 @@ public class AutomovelDAO {
                 auto.setPortas(resultados.getString("PORTAS"));
                 auto.setCombusitvel(resultados.getString("COMBUSTIVEL"));
                 auto.setDescrição(resultados.getString("DESCRICAO"));
-                auto.setValorDeLocacao(resultados.getFloat("VALORDELOCACAO"));
 
                 lista.add(auto);
             }
@@ -55,31 +54,23 @@ public class AutomovelDAO {
         return lista;
     }
 
-    public void incluirComTransacao(Automovel auto) throws SQLException {
-        String query = "INSERT INTO AUTOMOVEL "
-                + "(MARCA,MODELO,ANO,CATEGORIA,PLACA,RENAVAM,KILOMETRAGEM,NUMEROCHASSI,"
-                + "COR,PORTAS,COMBUSTIVEL,DESCRICAO,VALORDELOCACAO) "
-                + "VALUES (?, ?, ?, ?,?,?,?,?,?,?,?,?,?)";
+    public void incluirComTransacao(Venda venda) throws SQLException {
+        String query = "INSERT INTO VENDA "
+                + "(CPFCLI,RENAVAM,DATAENTREGA,DATADEVOLUCAO,VALORUNITARIO,VALORTOTAL) "
+                + "VALUES (?, ?, ?, ?, ?, ?)";
         Connection con = null;
         PreparedStatement stmt = null;
         try {
             con = BDConexao.getConnection();
 
             stmt = con.prepareStatement(query);
-            stmt.setString(1, auto.getMarca());
-            stmt.setString(2, auto.getModelo());
-            stmt.setString(3, auto.getAno());
-            stmt.setString(4, auto.getCategoria());
-            stmt.setString(5, auto.getPlaca());
-            stmt.setString(6, auto.getRenavam());
-            stmt.setString(7, auto.getKilometragem());
-            stmt.setString(8, auto.getNumeroChassi());
-            stmt.setString(9, auto.getCor());
-            stmt.setString(10, auto.getPortas());
-            stmt.setString(11, auto.getCombusitvel());
-            stmt.setString(12, auto.getDescrição());
-            stmt.setFloat(13, auto.getValorDeLocacao());
-
+            stmt.setString(1, venda.getCliente());
+            stmt.setString(2, venda.getRenavam());
+            stmt.setString(3, venda.getDatadeEntrega());
+            stmt.setString(4, venda.getDataDeDevolucao());
+            stmt.setFloat(5, venda.getValorUnitario());
+            stmt.setFloat(6, venda.getValorTotal());
+           
             stmt.execute();
         } catch (SQLException e) {
 
@@ -97,7 +88,7 @@ public class AutomovelDAO {
         String query = "SELECT * FROM AUTOMOVEL "
                 + "WHERE (RENAVAM=?)";
 
-        Automovel auto = new Automovel();
+     Automovel auto = new Automovel();
         try (Connection conn = getConnection();
                 PreparedStatement stmt = conn.prepareStatement(query)) {
 
@@ -106,7 +97,7 @@ public class AutomovelDAO {
             try (ResultSet resultados = stmt.executeQuery()) {
 
                 if (resultados.next()) {
-
+               
                     auto.setMarca(resultados.getString("MARCA"));
                     auto.setModelo(resultados.getString("MODELO"));
                     auto.setAno(resultados.getString("ANO"));
@@ -119,7 +110,7 @@ public class AutomovelDAO {
                     auto.setPortas(resultados.getString("PORTAS"));
                     auto.setCombusitvel(resultados.getString("COMBUSTIVEL"));
                     auto.setDescrição(resultados.getString("DESCRICAO"));
-                    auto.setValorDeLocacao(resultados.getFloat("VALORDELOCACAO"));
+
                 }
             }
         } catch (SQLException ex) {
@@ -128,52 +119,16 @@ public class AutomovelDAO {
         return auto;
     }
 
-//    public void excluir(String user) {
-//        String sql = "DELETE FROM LOGIN WHERE (USUARIO=?)";
-//        Connection connection = null;
-//
-//        try (Connection conn = getConnection();
-//                PreparedStatement stmt = conn.prepareStatement(sql)) {;
-//            stmt.setString(1, user);
-//            stmt.execute();
-//        } catch (SQLException ex) {
-//            System.err.println(ex.getMessage());
-//        }
-//    }
+    public void excluir(String user) {
+        String sql = "DELETE FROM LOGIN WHERE (USUARIO=?)";
+        Connection connection = null;
 
-    public void Atualizar(Automovel auto, String renavamAtual) throws SQLException {
-        String query = "UPDATE AUTOMOVEL SET MARCA=?, MODELO=?,ANO=?,CATEGORIA=?,"
-                + "PLACA=?,RENAVAM=?,KILOMETRAGEM=?,NUMEROCHASSI=?,COR=?,PORTAS=?,COMBUSTIVEL=?,DESCRICAO=?,VALORDELOCACAO"
-                + "WHERE (RENAVAM=?)";
-        Connection con = null;
-        PreparedStatement stmt = null;
-        try {
-
-            con = BDConexao.getConnection();
-
-            stmt = con.prepareStatement(query);
-            stmt.setString(1, auto.getMarca());
-            stmt.setString(2, auto.getModelo());
-            stmt.setString(3, auto.getAno());
-            stmt.setString(4, auto.getCategoria());
-            stmt.setString(5, auto.getPlaca());
-            stmt.setString(6, auto.getRenavam());
-            stmt.setString(7, auto.getKilometragem());
-            stmt.setString(8, auto.getNumeroChassi());
-            stmt.setString(9, auto.getCor());
-            stmt.setString(10, auto.getPortas());
-            stmt.setString(11, auto.getCombusitvel());
-            stmt.setString(12, auto.getDescrição());
-            stmt.setFloat(13, auto.getValorDeLocacao());
-            stmt.setString(14, renavamAtual);
+        try (Connection conn = getConnection();
+                PreparedStatement stmt = conn.prepareStatement(sql)) {;
+            stmt.setString(1, user);
             stmt.execute();
-        } finally {
-            if (stmt != null && !stmt.isClosed()) {
-                stmt.close();
-            }
-            if (con != null && !con.isClosed()) {
-                con.close();
-            }
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
         }
     }
 }

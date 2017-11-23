@@ -1,8 +1,4 @@
-<%-- 
-    Document   : editarAutomovel
-    Created on : 23/11/2017, 14:27:59
-    Author     : Phantom
---%>
+
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

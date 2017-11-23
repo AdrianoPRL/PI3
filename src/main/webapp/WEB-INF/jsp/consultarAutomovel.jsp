@@ -1,8 +1,4 @@
-<%-- 
-    Document   : consultarAutomovel
-    Created on : 23/11/2017, 14:09:32
-    Author     : Phantom
---%>
+
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

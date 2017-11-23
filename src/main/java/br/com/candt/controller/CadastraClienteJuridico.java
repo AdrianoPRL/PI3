@@ -21,10 +21,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author Phantom
- */
+
 @WebServlet(name = "CadastraClienteJuridico", urlPatterns = {"/CadastrarClienteJ"})
 public class CadastraClienteJuridico extends HttpServlet {
 

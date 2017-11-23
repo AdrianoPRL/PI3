@@ -14,10 +14,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author Phantom
- */
+
 public class ClienteJuridicoDAO {
 
     public void incluirComTransacao(ClienteJuridico cli) throws SQLException {

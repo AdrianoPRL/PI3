@@ -1,8 +1,4 @@
-<%-- 
-    Document   : cadastroautomovel
-    Created on : 23/10/2017, 17:26:02
-    Author     : Terui
---%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

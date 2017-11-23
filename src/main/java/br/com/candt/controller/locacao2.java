@@ -5,7 +5,6 @@
  */
 package br.com.candt.controller;
 
-import br.com.candt.model.Automovel;
 import br.com.candt.model.ClienteDao;
 import br.com.candt.model.ClienteFisico;
 import java.io.IOException;
@@ -21,15 +20,16 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 
-@WebServlet(name = "consultarCliente", urlPatterns = {"/consultarCliente"})
-public class consultarCliente extends HttpServlet {
+@WebServlet(name = "locacao2", urlPatterns = {"/selecionarCliente"})
+public class locacao2 extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher dispatcher
-                = request.getRequestDispatcher("/WEB-INF/jsp/consultarCliente.jsp");
+                = request.getRequestDispatcher("/WEB-INF/jsp/selecionarCliente.jsp");
         dispatcher.forward(request, response);
+
     }
 
     @Override
@@ -38,27 +38,37 @@ public class consultarCliente extends HttpServlet {
         ClienteDao cli = new ClienteDao();
         String search = request.getParameter("procurar");
         String btn = request.getParameter("tipodeuser");
-        if (!"editar".equals(btn)) {
+
+        if (!"selecionar".equals(btn)) {
             List<ClienteFisico> clientes = new ArrayList();
             if (search.isEmpty()) {
 
                 clientes = cli.listar();
                 request.setAttribute("model", clientes);
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/consultarCliente.jsp");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/selecionarCliente.jsp");
                 dispatcher.forward(request, response);
+
+            } else {
+
+                ClienteFisico cliente = cli.procurar(search);
+                clientes.add(cliente);
+
+                request.setAttribute("model", clientes);
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/selecionarCliente.jsp");
+                dispatcher.forward(request, response);
+
             }
-        } 
-        else {
-
+        } else if (btn.equals("selecionar")) {
             HttpSession sessao = request.getSession(true);
-
             search = request.getParameter("repeat");
-            ClienteFisico cliente = cli.procurar(search);
-            sessao.setAttribute("usuario", cliente);
-          response.sendRedirect(request.getContextPath() + "/editarCliente");
-   
+            ClienteFisico clienteS = cli.procurar(search);
+
+            sessao.setAttribute("usuario", clienteS);
+
+
+            response.sendRedirect(request.getContextPath() + "/alocacao");
         }
-//        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/consultarCliente.jsp");
-//        dispatcher.forward(request, response);
+
     }
+
 }

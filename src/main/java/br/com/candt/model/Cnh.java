@@ -7,10 +7,7 @@ package br.com.candt.model;
 
 import java.util.Date;
 
-/**
- *
- * @author Junior
- */
+
 public class Cnh {
 
     private Date val;

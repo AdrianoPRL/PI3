@@ -1,8 +1,4 @@
-<%-- 
-    Document   : cadastroclientejuridico
-    Created on : 23/10/2017, 17:00:43
-    Author     : Terui
---%>
+
 <%--<%@page language="java" contentType="text/html; charset=ISO-8859-1"%>--%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 

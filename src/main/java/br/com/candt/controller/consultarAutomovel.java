@@ -19,10 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-/**
- *
- * @author Phantom
- */
+
 @WebServlet(name = "consultarAutomovel", urlPatterns = {"/consultarAutomovel"})
 public class consultarAutomovel extends HttpServlet {
 

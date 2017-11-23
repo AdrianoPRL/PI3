@@ -19,10 +19,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author Phantom
- */
+
 @WebServlet(name = "editarAuto", urlPatterns = {"/editarAuto"})
 public class editarAuto extends HttpServlet {
 

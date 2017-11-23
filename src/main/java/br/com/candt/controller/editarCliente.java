@@ -22,10 +22,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-/**
- *
- * @author Phantom
- */
+
 @WebServlet(name = "editarCliente", urlPatterns = {"/editarCliente"})
 public class editarCliente extends HttpServlet {
 
