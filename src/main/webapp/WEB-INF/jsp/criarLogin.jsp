@@ -1,95 +1,93 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+
+<%@page language="java" contentType="text/html; charset=ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/criarlog.css" rel="stylesheet">
+        <script src="js/function.js" type="text/javascript"></script>
+        <link href="css/criarlog.css" rel="stylesheet" type="text/css"/>
+       
+        <link href="css/teste.css" rel="stylesheet" type="text/css"/>
         <title>CANDT</title>
     </head>
     <body style="background-image: url(${pageContext.request.contextPath}/img/fundo-site.jpg) ;">
-        <nav class="navbar navbar-default" style="background-image: none">
-            <div class="container-fluid">
+      <header></header>	
+        <input type="checkbox" id="chk"/>
 
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                        <span class="sr-only"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a id="candt" class="navbar-brand" href="home">CANDT</a>
-                </div>
+        <label for="chk"class="menu-icon"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span></label>
+        <input type="checkbox" id="chk2"/>
+        <label for="chk2"class="menu-icon2"><span class="glyphicon glyphicon-option-vertical" aria-hidden="true"></span></label>
+        <div class="bg"></div>
+        <nav class="menu" id="principal">
+            <ul>
+                <li class="user"><span class="glyphicon glyphicon-user" aria-hidden="true"></span><c:out value="${sessionScope.username.nomeCompleto}" /></li>
+                <li><a href="" class="voltar">Voltar</a></li>
+                <li><a href="home">Home</a></li>
+                <li><a href="#Cliente">Cliente <span>+</span></a></li>
+                <li><a href="#Automovel"> Automovel <span>+</span></a></li>
+                <li><a href="selecionarCliente  ">Venda</a></li>
 
+                <li><a href="#">Relatorio</a></li>
 
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
+                <li><a href="criarLogin">Criar Login</a></li>
 
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cliente <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li class=""><a href="CadastroDeClienteFisico">Cadastro Fisico</a></li>
-                                <li class=""><a href="CadastroDeClienteJuridico">Cadastro Juridico</a></li> 
-
-                                <li class=""><a>Consultar</a></li>
-
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Automovel <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="CadastroDeAutomovel">Cadastrar</a></li>
-                                <li><a href="#">Consultar </a></li>
-                            </ul>
-                        </li>
-                        <li><a href="Locacao">Efetuar Venda</a></li>
-                        <li><a href="#">Relatorio</a></li>
-                        <li><a href="criarLogin">Novo Login</a></li>
-                    </ul>
-
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="dropdown">
-                            <a  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li></li>
-                                <li><a href="AlterarLogin">Alterar senha</a></li>
-                                <li><a >Sair</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div><!-- /.navbar-collapse -->
-            </div><!-- /.container-fluid -->
+            </ul>
         </nav>
-        <div>
-            <div class="container " >
-                <div class="col-lg-4"></div>
-                <div class="col-lg-5">
-                    <div  class="jumbotron">
-                        <form class="form-horizontal">
-                             <div class="form-group">
-                                <label for="inputName" class="col-sm-2 control-label">Nome</label>
-                                <div class="col-sm-10">
-                                    <input type="email" class="form-control" id="inputName" placeholder="Nome" name="nome">
-                                </div>
-                                
-                            </div>
-                            <div class="form-group">
-                                <label for="usuario" class="col-sm-2 control-label">Usuario</label>
-                                <div class="col-sm-10">
-                                    <input type="email" class="form-control" id="usuario" placeholder="Usuario" name="username">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="senha" class="col-sm-2 control-label">Senha</label>
-                                <div class="col-sm-10">
-                                    <input type="password" class="form-control" id="senha" placeholder="Senha" name="password">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-offset-2 col-sm-10">
-                                    <label class="control-label" for="tipodeuser">Tipos de Usuarios   </label>
-                                       
-                                    <div class="checkbox">          
+        <nav class="menu" id="Cliente">
+            <ul>
+                <li><a href="#" class="voltar">Voltar</a></li>
+                <li><a href="CadastrarClienteF">Cadastro Fisico</a></li>
+                <li><a href="CadastrarClienteJ">Cadastro Juridico</a></li>
+                <li><a href="consultarCliente">Consultar</a></li>
+            </ul>
+        </nav>
+        <nav class="menu" id="Automovel">
+            <ul>
+                <li><a href="#" class="voltar">Voltar</a></li>
+                <li><a href="cadastrarAutomovel">Cadastrar</a></li>
+                <li><a href="consultarAutomovel">Consultar</a></li>
+
+            </ul>
+        </nav>
+        <div class="bg2"></div>
+        <nav class="menu" id="navright">
+            <ul>
+                <li><a href="" class="voltar2">Voltar</a></li>
+                <li><a href="AlterarSenha" >Trocar Senha</a></li>
+                <li><a href="./logout">Logout</a></li>
+            </ul>
+        </nav>
+        
+            <div class="container">
+                <div class="row centered-form">
+                    <div class="">
+                        <div class="panel-heading">
+                            <div class="panel-body">
+                                <form action="./criarLogin "method="post">
+                                    <div class="form-row">
+                                        <div class="form-group col-md-8 col-sm-offset-2">
+                                            <label for="inputName" >Nome completo</label>
+                                            <input type="text" class="form-control" id="inputName" placeholder="Nome" name="nome">                                   
+                                    </div>    
+                                    </div>
+                                      <div class="form-row">
+                                            <div class="form-group col-md-8 col-sm-offset-2">
+                                             <label for="usuario" >Usuario</label>
+                                             <input type="text" class="form-control" id="usuario" placeholder="Usuario" name="username">
+                                             </div>
+                                      </div>
+                                      <div class="form-row">
+                                             <div class="form-group col-md-8 col-sm-offset-2">
+                                             <label for="senha" >Senha</label>
+                                               <input type="password" class="form-control" id="senha" placeholder="Senha" name="password">
+                                        </div> 
+                                    </div>
+                                    <div class="form-row "> 
+                                        <div class="form-group col-md-8 col-sm-offset-3">
+                                        <div class="checkbox">     
+                                            <label for="rad" ></label> 
                                         <label class="radio-inline">
                                             <input type="radio" name="tipodeuser" id="radioAdm" value="Admin">Admin
                                         </label>
@@ -99,25 +97,30 @@
                                         <label class="radio-inline">
                                             <input type="radio" name="tipodeuser" id="radioFunc" value="Funcionario">Funcionario
                                         </label>
+                                        </div>
                                     </div>                                        
+                                    </div>
+                                    <div ld="botoes" class="form-row col-md-7 col-sm-offset-4">
+                                    <button type="submit" class="btn btn-success">Confirmar</button>
+                                    <button type="reset" class="btn btn-danger">Cancelar</button>
+                                </div> 
                                     
+                                    
+                                </form>
 
-                                </div>
+
+
+
+
                             </div>
-                            <div class="form-group">
-                                <div class="col-sm-offset-2 col-sm-10">
-                                             <button type="reset" class="btn btn-default">Cancelar</button>
-                                    <button type="submit" class="btn btn-default">Confirmar</button>
-                           
-                                </div>
-                            </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
+
             </div>
-        </div>
-    </form>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</body>
+
+
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </body>
 </html>

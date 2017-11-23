@@ -7,7 +7,7 @@
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="css/bootstrap.css">
         <link href="css/banner.css" rel="stylesheet" type="text/css"/>
-        <link href="css/nav.css" rel="stylesheet" type="text/css"/>
+        <link href="css/navbar.css" rel="stylesheet" type="text/css"/>
 
         <link rel="shortcut icon" href="${pageContext.request.contextPath}/img/icon.png" type="image/x-icon" />
 
@@ -23,16 +23,16 @@
         <div class="bg"></div>
         <nav class="menu" id="principal">
             <ul>
-
+                <li class="user"><span class="glyphicon glyphicon-user" aria-hidden="true"></span><c:out value="${sessionScope.username.nomeCompleto}" /></li>
                 <li><a href="" class="voltar">Voltar</a></li>
                 <li><a href="home">Home</a></li>
                 <li><a href="#Cliente">Cliente <span>+</span></a></li>
                 <li><a href="#Automovel"> Automovel <span>+</span></a></li>
-                <li><a href="#">Venda</a></li>
+                <li><a href="selecionarCliente  ">Venda</a></li>
 
                 <li><a href="#">Relatorio</a></li>
 
-                <li><a href="#">Criar Login</a></li>
+                <li><a href="criarLogin">Criar Login</a></li>
 
             </ul>
         </nav>
@@ -40,15 +40,15 @@
             <ul>
                 <li><a href="#" class="voltar">Voltar</a></li>
                 <li><a href="CadastrarClienteF">Cadastro Fisico</a></li>
-                <li><a href="#">Cadastro Juridico</a></li>
-                <li><a href="#">Consultar</a></li>
+                <li><a href="CadastrarClienteJ">Cadastro Juridico</a></li>
+                <li><a href="consultarCliente">Consultar</a></li>
             </ul>
         </nav>
         <nav class="menu" id="Automovel">
             <ul>
                 <li><a href="#" class="voltar">Voltar</a></li>
-                <li><a href="#">Cadastrar</a></li>
-                <li><a href="#">Consultar</a></li>
+                <li><a href="cadastrarAutomovel">Cadastrar</a></li>
+                <li><a href="consultarAutomovel">Consultar</a></li>
 
             </ul>
         </nav>
@@ -56,8 +56,8 @@
         <nav class="menu" id="navright">
             <ul>
                 <li><a href="" class="voltar2">Voltar</a></li>
-                <li><a href="#" >Trocar Senha</a></li>
-                <li><a href="#">Logout</a></li>
+                <li><a href="AlterarSenha" >Trocar Senha</a></li>
+                <li><a href="./logout">Logout</a></li>
             </ul>
         </nav>
         <!--
@@ -88,5 +88,5 @@
             </a>
         </div>
         
-        <!---->    </body>
+<!---->    </body>
 </html>
