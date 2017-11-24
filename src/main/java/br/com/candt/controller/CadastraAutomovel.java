@@ -19,7 +19,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 @WebServlet(name = "CadastraAutomovel", urlPatterns = {"/cadastrarAutomovel"})
 public class CadastraAutomovel extends HttpServlet {
 
@@ -41,9 +40,10 @@ public class CadastraAutomovel extends HttpServlet {
         auto.setAno(request.getParameter("anoAuto"));
         auto.setPlaca(request.getParameter("placa"));
         auto.setCategoria(request.getParameter("categoria"));
+
         auto.setRenavam(request.getParameter("renavam"));
         auto.setNumeroChassi(request.getParameter("nchassi"));
-        auto.setValorDeLocacao(Float.parseFloat(request.getParameter("val")));
+        auto.setValorDeLocacao(request.getParameter("val"));
         auto.setCor(request.getParameter("cor"));
         auto.setPortas(request.getParameter("portas"));
         auto.setCombusitvel(request.getParameter("combustivel"));
@@ -54,7 +54,7 @@ public class CadastraAutomovel extends HttpServlet {
         } catch (SQLException ex) {
             Logger.getLogger(CadastraAutomovel.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         RequestDispatcher dispatcher
                 = request.getRequestDispatcher("/WEB-INF/jsp/cadastroautomovel.jsp");
         dispatcher.forward(request, response);

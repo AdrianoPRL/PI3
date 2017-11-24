@@ -15,12 +15,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class AutomovelDAO {
 
     public List<Automovel> listar() {
 
-        String query = "SELECT * FROM Automovel";
+        String query = "SELECT * FROM AUTO";
         List<Automovel> lista = new ArrayList();
         Connection con = null;
         PreparedStatement stmt = null;
@@ -44,7 +43,7 @@ public class AutomovelDAO {
                 auto.setPortas(resultados.getString("PORTAS"));
                 auto.setCombusitvel(resultados.getString("COMBUSTIVEL"));
                 auto.setDescrição(resultados.getString("DESCRICAO"));
-                auto.setValorDeLocacao(resultados.getFloat("VALORDELOCACAO"));
+                auto.setValorDeLocacao(resultados.getString("VALORDELOCACAO"));
 
                 lista.add(auto);
             }
@@ -56,10 +55,10 @@ public class AutomovelDAO {
     }
 
     public void incluirComTransacao(Automovel auto) throws SQLException {
-        String query = "INSERT INTO AUTOMOVEL "
+        String query = "INSERT INTO AUTO "
                 + "(MARCA,MODELO,ANO,CATEGORIA,PLACA,RENAVAM,KILOMETRAGEM,NUMEROCHASSI,"
                 + "COR,PORTAS,COMBUSTIVEL,DESCRICAO,VALORDELOCACAO) "
-                + "VALUES (?, ?, ?, ?,?,?,?,?,?,?,?,?,?)";
+                + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
         Connection con = null;
         PreparedStatement stmt = null;
         try {
@@ -78,8 +77,8 @@ public class AutomovelDAO {
             stmt.setString(10, auto.getPortas());
             stmt.setString(11, auto.getCombusitvel());
             stmt.setString(12, auto.getDescrição());
-            stmt.setFloat(13, auto.getValorDeLocacao());
-
+            stmt.setString(13, auto.getValorDeLocacao());
+            
             stmt.execute();
         } catch (SQLException e) {
 
@@ -94,7 +93,7 @@ public class AutomovelDAO {
     }
 
     public Automovel procurar(String Renavam) {
-        String query = "SELECT * FROM AUTOMOVEL "
+        String query = "SELECT * FROM AUTO "
                 + "WHERE (RENAVAM=?)";
 
         Automovel auto = new Automovel();
@@ -119,7 +118,7 @@ public class AutomovelDAO {
                     auto.setPortas(resultados.getString("PORTAS"));
                     auto.setCombusitvel(resultados.getString("COMBUSTIVEL"));
                     auto.setDescrição(resultados.getString("DESCRICAO"));
-                    auto.setValorDeLocacao(resultados.getFloat("VALORDELOCACAO"));
+                    auto.setValorDeLocacao(resultados.getString("VALORDELOCACAO"));
                 }
             }
         } catch (SQLException ex) {
@@ -140,9 +139,8 @@ public class AutomovelDAO {
 //            System.err.println(ex.getMessage());
 //        }
 //    }
-
     public void Atualizar(Automovel auto, String renavamAtual) throws SQLException {
-        String query = "UPDATE AUTOMOVEL SET MARCA=?, MODELO=?,ANO=?,CATEGORIA=?,"
+        String query = "UPDATE AUTO SET MARCA=?, MODELO=?,ANO=?,CATEGORIA=?,"
                 + "PLACA=?,RENAVAM=?,KILOMETRAGEM=?,NUMEROCHASSI=?,COR=?,PORTAS=?,COMBUSTIVEL=?,DESCRICAO=?,VALORDELOCACAO"
                 + "WHERE (RENAVAM=?)";
         Connection con = null;
@@ -164,7 +162,7 @@ public class AutomovelDAO {
             stmt.setString(10, auto.getPortas());
             stmt.setString(11, auto.getCombusitvel());
             stmt.setString(12, auto.getDescrição());
-            stmt.setFloat(13, auto.getValorDeLocacao());
+            stmt.setString(13, auto.getValorDeLocacao());
             stmt.setString(14, renavamAtual);
             stmt.execute();
         } finally {

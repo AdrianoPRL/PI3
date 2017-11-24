@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class Cliente {
 
-//    private Cnh CNH;
+    private String valCNH;
     private String end;
     private String UF;
     private String complemento;
@@ -21,7 +21,7 @@ public class Cliente {
     }
 
     public Cliente( String end, String UF, String complemento, String bairro, String telefone,
-            String email,String numeroCnh,String categoriaCnh,String cidade,String numero,String CEP) {
+            String email,String numeroCnh,String categoriaCnh,String cidade,String numero,String CEP,String valCNH) {
         this.CEP=CEP;
         this.end = end;
         this.UF = UF;
@@ -33,6 +33,7 @@ public class Cliente {
         this.numeroCnh=numeroCnh;
         this.categoriaCnh=categoriaCnh;
         this.numero=numero;
+        this.valCNH=valCNH;
     }
 
     public String getCEP() {
@@ -162,6 +163,14 @@ public class Cliente {
 
     public void setNumero(String numero) {
         this.numero = numero;
+    }
+
+    public String getValCNH() {
+        return valCNH;
+    }
+
+    public void setValCNH(String valCNH) {
+        this.valCNH = valCNH;
     }
     
 }

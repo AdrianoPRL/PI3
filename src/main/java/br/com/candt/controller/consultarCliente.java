@@ -47,6 +47,15 @@ public class consultarCliente extends HttpServlet {
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/consultarCliente.jsp");
                 dispatcher.forward(request, response);
             }
+            else  {
+
+                ClienteFisico cliente = cli.procurar(search);
+                clientes.add(cliente);
+
+                request.setAttribute("model", clientes);
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/selecionarCliente.jsp");
+                dispatcher.forward(request, response);
+            }
         } 
         else {
 

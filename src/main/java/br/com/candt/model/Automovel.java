@@ -11,17 +11,18 @@ public class Automovel {
     private String kilometragem;
     private String numeroChassi;
     private String cor;
-    private Float valorDeLocacao;
+    private String valorDeLocacao;
     private String portas;
     private String combusitvel;
     private String descrição;
-
+    private int quantidade;
     public Automovel() {
 
     }
 
-    public Automovel(String marca, String modelo, String ano, String categoria, String placa,
-            String renavam, String kilometragem,  Float valorDeLocacao,String numeroChassi, String cor, String portas, String combusitvel, String descrição) {
+    public Automovel( int quantidade,String marca, String modelo, String ano, String categoria, String placa,
+            String renavam, String kilometragem,  String valorDeLocacao,String numeroChassi, String cor, String portas, String combusitvel, String descrição) {
+        this.quantidade=quantidade;
         this.marca = marca;
         this.modelo = modelo;
         this.ano = ano;
@@ -133,12 +134,20 @@ public class Automovel {
         this.descrição = descrição;
     }
 
-    public Float getValorDeLocacao() {
+    public String getValorDeLocacao() {
         return valorDeLocacao;
     }
 
-    public void setValorDeLocacao(Float valorDeLocacao) {
+    public void setValorDeLocacao(String valorDeLocacao) {
         this.valorDeLocacao = valorDeLocacao;
+    }
+
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
     }
 
 }

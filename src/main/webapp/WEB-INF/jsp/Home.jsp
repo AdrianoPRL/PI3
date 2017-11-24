@@ -7,8 +7,7 @@
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="css/bootstrap.css">
         <link href="css/banner.css" rel="stylesheet" type="text/css"/>
-        <link href="css/navbar.css" rel="stylesheet" type="text/css"/>
-
+        <link href="css/nav.css" rel="stylesheet" type="text/css"/>
         <link rel="shortcut icon" href="${pageContext.request.contextPath}/img/icon.png" type="image/x-icon" />
 
         <title>Home</title>

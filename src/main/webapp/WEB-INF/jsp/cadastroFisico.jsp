@@ -187,22 +187,7 @@
 
                                         <input type="text " class="form-control" id="NumeroCNH" placeholder="Numero da CNH" name="CNHNumber">
                                     </div>
-                                     <div class="form-group col-md-2">
-                                           <label for="inputState">Categoria da CNH</label>
-                                         <select id="cat" class="form-control " name="categoria">
-                                            <option selected>Categoria...</option>
-                                            <option value="A">A</option>
-                                            <option value="B">B</option>
-                                            <option value="C">C</option>
-                                            <option value="D">D</option>
-                                            <option value="E">E</option>
-                                        </select>
-                                      </div>
-                                    <div class="form-group col-md-4">
-                                        <label for="Val" class=" control-label ">Validade da CNH</label>
-
-                                        <input type="text " class="form-control" id="Val" placeholder="Validade da CNH" name="valCNH">
-                                    </div>
+                     
                                     </div>
                                 <div class="form-row">
                                 <div class="form-group col-md-5 col-sm-offset-5">

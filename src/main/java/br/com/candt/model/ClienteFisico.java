@@ -45,8 +45,8 @@ public class ClienteFisico extends Cliente {
     super();
     }
     public ClienteFisico( String end, String UF, String complemento, String bairro, String telefone,
-            String email, String nomeCompleto, String CPF, String dataNasc,String sexo,String numeroCnh,String categoriaCnh,String cidade,String numero,String CEP) {
-        super(end, UF, complemento, bairro, telefone, email,numeroCnh,categoriaCnh,cidade,numero,CEP);
+            String email, String nomeCompleto, String CPF, String dataNasc,String valCNH,String sexo,String numeroCnh,String categoriaCnh,String cidade,String numero,String CEP) {
+        super(end, UF, complemento, bairro, telefone, email,numeroCnh,categoriaCnh,cidade,numero,CEP,valCNH);
         this.nomeCompleto = nomeCompleto;
         this.CPF = CPF;
         this.dataNasc=dataNasc;

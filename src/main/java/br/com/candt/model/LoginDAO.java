@@ -91,7 +91,7 @@ public class LoginDAO extends BDConexao {
     }
 
     public void Atualizar(UserSistem log) {
-        String sql = "UPDATE produto SET USERNAME=?, SENHA=? NOME=? TIPOUSUARIO=?"
+        String sql = "UPDATE produto SET USERNAME=?, SENHA=? ,NOME=? ,TIPOUSUARIO=?"
                 + "WHERE (USUARIO=?)";
 
         try (Connection conn = getConnection();

@@ -20,7 +20,7 @@
                        <img src="${pageContext.request.contextPath}/img/candt.png"  class="img-responsive " width="150" /> 
                     </div>
                    
-                    <form  action="" class="form-horizontal" method="post" enctype="application/x-www-form-urlencoded">
+                    <form  action="./login "method="post" class="form-horizontal" >
                         <div class="form-group">
                           
                             <label for="usuario" class="col-sm-2 control-label "><i class="fa fa-user fa-2x" aria-hidden="true"></i></label>

@@ -66,5 +66,8 @@ public class editarCliente extends HttpServlet {
         } catch (SQLException ex) {
             Logger.getLogger(CadastraClienteFisico.class.getName()).log(Level.SEVERE, null, ex);
         }
+         RequestDispatcher dispatcher
+                    = request.getRequestDispatcher("/WEB-INF/jsp/editarCliente.jsp");
+            dispatcher.forward(request, response);
     }
 }

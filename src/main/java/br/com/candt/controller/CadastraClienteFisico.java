@@ -20,7 +20,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 @WebServlet(name = "CadastraClienteFisico", urlPatterns = {"/CadastrarClienteF"})
 public class CadastraClienteFisico extends HttpServlet {
 
@@ -30,21 +29,22 @@ public class CadastraClienteFisico extends HttpServlet {
         RequestDispatcher dispatcher
                 = request.getRequestDispatcher("/WEB-INF/jsp/cadastroFisico.jsp");
         dispatcher.forward(request, response);
-     
+
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-           throws ServletException, IOException {
+            throws ServletException, IOException {
         String cpf = request.getParameter("cpf");
-         if (cpf.isEmpty()) {
+        if (cpf.isEmpty()) {
             request.setAttribute("msgErro", "campo não pode ser vazio");
             RequestDispatcher dispatcher
                     = request.getRequestDispatcher("/WEB-INF/jsp/cadastroFisico.jsp");
             dispatcher.forward(request, response);
-         }
+        }
         ClienteFisico cli = new ClienteFisico();
         cli.setCPF(cpf);
+    
         cli.setNomeCompleto(request.getParameter("nomecompleto"));
         cli.setDataNasc(request.getParameter("datanasc"));
         cli.setSexo(request.getParameter("sexo"));
@@ -57,16 +57,14 @@ public class CadastraClienteFisico extends HttpServlet {
         cli.setBairro(request.getParameter("bairro"));
         cli.setTelefone(request.getParameter("tel"));
         cli.setEmail(request.getParameter("email"));
-          cli.setCidade(request.getParameter("cidade"));
-        ClienteDao cliDao= new ClienteDao(); 
+        cli.setCidade(request.getParameter("cidade"));
+        ClienteDao cliDao = new ClienteDao();
         try {
             cliDao.incluirComTransacao(cli);
         } catch (SQLException ex) {
             Logger.getLogger(CadastraClienteFisico.class.getName()).log(Level.SEVERE, null, ex);
         }
-            
-            
-        }
-    
-}
 
+    }
+
+}

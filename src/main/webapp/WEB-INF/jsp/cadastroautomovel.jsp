@@ -7,14 +7,14 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Cadastro Fisico</title>
         <link href="css/bootstrap.min.css" rel="stylesheet">
-             <link href="css/new.css" rel="stylesheet" type="text/css"/>
+        <link href="css/new.css" rel="stylesheet" type="text/css"/>
         <link href="css/nav.css" rel="stylesheet" type="text/css"/>
         <link rel="shortcut icon" href="${pageContext.request.contextPath}/img/icon.png" type="image/x-icon" />
 
         <script src="js/function.js" type="text/javascript"></script>
     </head>
     <body style="background-image: url(${pageContext.request.contextPath}/img/fundo-site.jpg );">
-          <header></header>	
+        <header></header>	
         <input type="checkbox" id="chk"/>
 
         <label for="chk"class="menu-icon"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span></label>
@@ -79,7 +79,7 @@
                                     </div>
 
                                 </div>
-                                
+
                                 <div class="form-row"> 
                                     <div class="form-group col-md-3">
                                         <label for="ano" >Ano</label>
@@ -107,64 +107,68 @@
                                     </div>
                                 </div>                            
 
-                                    <div class="form-row">
-                                        <div class="form-group col-md-3">
-                                            <label for="numeroChassi"  class=" control-label ">numero do Chassi</label>
+                                <div class="form-row">
+                                    <div class="form-group col-md-3">
+                                        <label for="numeroChassi"  class=" control-label ">numero do Chassi</label>
 
-                                            <input type="text " class="form-control" id="numeroChassi" placeholder="Digite o número do chassi" name="nchassi">
-                                        </div>
-                                        <div class="form-group col-md-3">
-                                            <label for="cor" class=" control-label ">Cor</label>
+                                        <input type="text " class="form-control" id="numeroChassi" placeholder="Digite o número do chassi" name="nchassi">
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="cor" class=" control-label ">Cor</label>
 
-                                            <input type="text " class="form-control" id="cor" placeholder="Digite a cor " name="cor">
-
-                                        </div>
-                                        <div class="form-group col-md-3">
-                                            <label for="Portas" class=" control-label ">Portas</label>
-
-                                            <input type="text " class="form-control" id="Portas" placeholder="numero de portas " name="portas">
-
-                                        </div>
-                                        <div class="form-group col-md-2">
-                                            <label for="comb">Combusitvel</label>
-                                            <select id="comb" class="form-control " name="combustivel">
-                                                <option selected>Combusitvel...</option>
-                                                <option value="Flex">Flex</option>
-                                                <option value="Gasolina">Gasolina</option>
-                                                <option value="Etanol">Etanol</option>
-                                                <option value="Diesel">Diesel</option>
-
-                                            </select>
-                                        </div>
-                                        <div class="form-group col-md-2">
-                                            <label for="Kilometragem" class=" control-label ">Kilometragem</label>
-
-                                            <input type="text " class="form-control" id="Portas" placeholder="KM " name="KMs">
-
-                                        </div>
-                                        <div class="form-group col-md-2">
-                                            <label for="val" class=" control-label ">Valor de locação</label>
-                                          
-                                            <input type="text" class="form-control" id="val" placeholder=" " name="val">
-
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                            <label for="desc" class=" control-label ">Descrição</label>
-                                          
-                                            <input type="text" class="form-control" id="desc" placeholder="ex:ABS+ " name="desc">
-
-                                        </div>
+                                        <input type="text " class="form-control" id="cor" placeholder="Digite a cor " name="cor">
 
                                     </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="Portas" class=" control-label ">Portas</label>
 
+                                        <input type="text " class="form-control" id="Portas" placeholder="numero de portas " name="portas">
 
-                                    <div class="form-row">
-                                        <div class="form-group col-md-5 col-sm-offset-5">
-                                            <button type="submit" class="btn btn-success">Confirmar</button>
-                                            <button type="reset" class="btn btn-danger">Cancelar</button>
-                                        </div> 
                                     </div>
-                             </form>
+                                    <div class="form-group col-md-2">
+                                        <label for="comb">Combusitvel</label>
+                                        <select id="comb" class="form-control " name="combustivel">
+                                            <option selected>Combusitvel...</option>
+                                            <option value="Flex">Flex</option>
+                                            <option value="Gasolina">Gasolina</option>
+                                            <option value="Etanol">Etanol</option>
+                                            <option value="Diesel">Diesel</option>
+
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <label for="Kilometragem" class=" control-label ">Kilometragem</label>
+
+                                        <input type="text " class="form-control" id="Portas" placeholder="KM " name="KMs">
+
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <label for="val" class=" control-label ">Valor de locação</label>
+
+                                        <input type="text" class="form-control" id="val" placeholder=" " name="val">
+
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="desc" class=" control-label ">Descrição</label>
+
+                                        <input type="text" class="form-control" id="desc" placeholder="ex:ABS+ " name="desc">
+
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <label for="quant">quantidade</label>
+                                        <input type="text" class="form-control" id="quant" placeholder="123" name="quantidade">
+                                    </div>
+
+                                </div>
+
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-5 col-sm-offset-5">
+                                        <button type="submit" class="btn btn-success">Confirmar</button>
+                                        <button type="reset" class="btn btn-danger">Cancelar</button>
+                                    </div> 
+                                </div>
+                            </form>
 
 
 

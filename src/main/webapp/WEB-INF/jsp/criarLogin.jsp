@@ -8,7 +8,8 @@
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <script src="js/function.js" type="text/javascript"></script>
         <link href="css/criarlog.css" rel="stylesheet" type="text/css"/>
-       
+              <link href="css/nav.css" rel="stylesheet" type="text/css"/>
+               <link href="css/new.css" rel="stylesheet" type="text/css"/>
         <link href="css/teste.css" rel="stylesheet" type="text/css"/>
         <title>CANDT</title>
     </head>

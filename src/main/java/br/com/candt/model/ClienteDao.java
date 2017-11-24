@@ -14,12 +14,11 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class ClienteDao {
 
     public List<ClienteFisico> listar() {
 
-        String query = "SELECT * FROM CLIENTEFISICO";
+        String query = "SELECT * FROM CLIENTEF";
         List<ClienteFisico> lista = new ArrayList();
         Connection con = null;
         PreparedStatement stmt = null;
@@ -31,20 +30,20 @@ public class ClienteDao {
 
             while (resultados.next()) {
                 ClienteFisico c = new ClienteFisico();
-                c.setNomeCompleto(resultados.getString("NOMECOMPLETO"));
                 c.setCPF(resultados.getString("CPF"));
-                c.setDataNasc(resultados.getString("DATANASC"));
+                c.setNomeCompleto(resultados.getString("NOME"));
                 c.setSexo(resultados.getString("SEXO"));
-                c.setNumeroCnh(resultados.getString("CNH"));
-                c.setEnd(resultados.getString("ENDEREÇO"));
-                c.setCEP(resultados.getString("CEP"));
-                c.setCidade(resultados.getString("CIDADE"));
-                c.setUF(resultados.getString("UF"));
-                c.setComplemento(resultados.getString("COMPLEMENTO"));
-                c.setBairro(resultados.getString("BAIRRO"));
                 c.setTelefone(resultados.getString("TELEFONE"));
                 c.setEmail(resultados.getString("EMAIL"));
+                c.setNumeroCnh(resultados.getString("NUMEROCNH"));
+                c.setEnd(resultados.getString("ENDERECO"));
+                c.setComplemento(resultados.getString("COMPLEMENTO"));
                 c.setNumero(resultados.getString("NUMERO"));
+                c.setBairro(resultados.getString("BAIRRO"));
+                c.setCEP(resultados.getString("CEP"));
+                c.setCidade(resultados.getString("CIDADE"));
+                c.setDataNasc(resultados.getString("DATANASCIMENTO"));
+                c.setUF(resultados.getString("ESTADO"));
 
                 lista.add(c);
             }
@@ -56,30 +55,34 @@ public class ClienteDao {
     }
 
     public void incluirComTransacao(ClienteFisico cli) throws SQLException {
-        String query = "INSERT INTO CLIENTEFISICO "
-                + "(CPF,NOMECOMPLETO,DATANASC,SEXO,CNH,ENDEREÇO,UF,COMPLEMENTO,"
-                + "BAIRRO,TELEFONE,EMAIL,CIDADE,NUMERO,CEP) "
-                + "VALUES (?, ?, ?, ?,?,?,?,?,?,?,?,?,?,?)";
+        String query = "INSERT INTO CLIENTEF "
+                + "(NOME,CPF,SEXO,TELEFONE,EMAIL,NUMEROCNH,ENDERECO,COMPLEMENTO,NUMERO,BAIRRO,CEP,"
+                + "CIDADE,DATANASCIMENTO,ESTADO)"
+                + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         Connection con = null;
         PreparedStatement stmt = null;
         try {
             con = BDConexao.getConnection();
 
             stmt = con.prepareStatement(query);
+
             stmt.setString(1, cli.getCPF());
             stmt.setString(2, cli.getNomeCompleto());
-            stmt.setString(3, cli.getDataNasc());
-            stmt.setString(4, cli.getSexo());
-            stmt.setString(5, cli.getNumeroCnh());
-            stmt.setString(6, cli.getEnd());
-            stmt.setString(7, cli.getUF());
+            stmt.setString(3, cli.getSexo());
+            stmt.setString(4, cli.getTelefone());
+            stmt.setString(5, cli.getEmail());
+
+            stmt.setString(6, cli.getNumeroCnh());
+            stmt.setString(7, cli.getEnd());
             stmt.setString(8, cli.getComplemento());
-            stmt.setString(9, cli.getBairro());
-            stmt.setString(10, cli.getTelefone());
-            stmt.setString(11, cli.getEmail());
+            stmt.setString(9, cli.getNumero());
+            stmt.setString(10, cli.getBairro());
+            stmt.setString(11, cli.getCEP());
+
             stmt.setString(12, cli.getCidade());
-            stmt.setString(13, cli.getNumero());
-            stmt.setString(14, cli.getCEP());
+
+            stmt.setString(13, cli.getDataNasc());
+            stmt.setString(14, cli.getUF());
             stmt.execute();
         } catch (SQLException e) {
 
@@ -94,7 +97,7 @@ public class ClienteDao {
     }
 
     public ClienteFisico procurar(String CPF) {
-        String query = "SELECT * FROM CLIENTEFISICO "
+        String query = "SELECT * FROM CLIENTEF "
                 + "WHERE (CPF=?)";
 
         ClienteFisico c = null;
@@ -107,21 +110,20 @@ public class ClienteDao {
 
                 if (resultados.next()) {
                     c = new ClienteFisico();
-                    c.setNomeCompleto(resultados.getString("NOMECOMPLETO"));
                     c.setCPF(resultados.getString("CPF"));
-                    c.setDataNasc(resultados.getString("DATANASC"));
+                    c.setNomeCompleto(resultados.getString("NOME"));
                     c.setSexo(resultados.getString("SEXO"));
-                    c.setNumeroCnh(resultados.getString("CNH"));
-                    c.setEnd(resultados.getString("ENDEREÇO"));
-                    c.setCidade(resultados.getString("CIDADE"));
-                    c.setCEP(resultados.getString("CEP"));
-                    c.setUF(resultados.getString("UF"));
-                    c.setComplemento(resultados.getString("COMPLEMENTO"));
-                    c.setBairro(resultados.getString("BAIRRO"));
                     c.setTelefone(resultados.getString("TELEFONE"));
                     c.setEmail(resultados.getString("EMAIL"));
+                    c.setNumeroCnh(resultados.getString("NUMEROCNH"));
+                    c.setEnd(resultados.getString("ENDERECO"));
+                    c.setComplemento(resultados.getString("COMPLEMENTO"));
                     c.setNumero(resultados.getString("NUMERO"));
-
+                    c.setBairro(resultados.getString("BAIRRO"));
+                    c.setCEP(resultados.getString("CEP"));
+                    c.setCidade(resultados.getString("CIDADE"));
+                    c.setDataNasc(resultados.getString("DATANASCIMENTO"));
+                    c.setUF(resultados.getString("ESTADO"));
                 }
             }
         } catch (SQLException ex) {
@@ -142,11 +144,10 @@ public class ClienteDao {
 //            System.err.println(ex.getMessage());
 //        }
 //    }
-
     public void Atualizar(ClienteFisico cli, String CPF) throws SQLException {
-        String query = "UPDATE CLIENTEFISICO SET CPF=?,NOMECOMPLETO=?,DATANASC=?,SEXO=?,"
-                + "CNH=?,ENDEREÇO=?,UF=?,COMPLEMENTO=?,"
-                + "CEP=?,BAIRRO=?,TELEFONE=?,EMAIL=?,CIDADE=?,NUMERO=?"
+        String query = "UPDATE CLIENTEF SET CPF=?,NOME=?SEXO=?,TELEFONE=?,EMAIL=?"
+                + "NUMEROCNH=?,ENDEREÇO=?,COMPLEMENTO=?,NUMERO=?,BAIRRO=?,CEP=?,CIDADE=?,"
+                + "DATANASCIMENTO=?,ESTADO=?"
                 + "WHERE (CPF=?)";
         Connection con = null;
         PreparedStatement stmt = null;
@@ -156,18 +157,21 @@ public class ClienteDao {
             stmt = con.prepareStatement(query);
             stmt.setString(1, cli.getCPF());
             stmt.setString(2, cli.getNomeCompleto());
-            stmt.setString(3, cli.getDataNasc());
-            stmt.setString(4, cli.getSexo());
-            stmt.setString(5, cli.getNumeroCnh());
-            stmt.setString(6, cli.getEnd());
-            stmt.setString(7, cli.getUF());
+            stmt.setString(3, cli.getSexo());
+            stmt.setString(4, cli.getTelefone());
+            stmt.setString(5, cli.getEmail());
+
+            stmt.setString(6, cli.getNumeroCnh());
+            stmt.setString(7, cli.getEnd());
             stmt.setString(8, cli.getComplemento());
-            stmt.setString(9, cli.getCEP());
+            stmt.setString(9, cli.getNumero());
             stmt.setString(10, cli.getBairro());
-            stmt.setString(11, cli.getTelefone());
-            stmt.setString(12, cli.getEmail());
-            stmt.setString(13, cli.getCidade());
-            stmt.setString(14, cli.getNumero());
+            stmt.setString(11, cli.getCEP());
+
+            stmt.setString(12, cli.getCidade());
+
+            stmt.setString(13, cli.getDataNasc());
+            stmt.setString(14, cli.getUF());
             stmt.setString(15, CPF);
             stmt.execute();
         } catch (SQLException e) {
