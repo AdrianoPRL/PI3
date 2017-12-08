@@ -22,52 +22,82 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-
 @WebServlet(name = "editarCliente", urlPatterns = {"/editarCliente"})
 public class editarCliente extends HttpServlet {
 
-     @Override
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher dispatcher
                 = request.getRequestDispatcher("/WEB-INF/jsp/editarCliente.jsp");
         dispatcher.forward(request, response);
-        
+
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-     String cpf = request.getParameter("cpf");
-          String Atualcpf = request.getParameter("atualCPF");
-         if (cpf.isEmpty()) {
-            request.setAttribute("msgErro", "campo não pode ser vazio");
+//        String cpf = request.getParameter("cpf");
+
+        String nomeCompleto = request.getParameter("nomecompleto");
+        String cpf = request.getParameter("cpf");
+        String DataNasc = request.getParameter("datanasc");
+        String setSexo = request.getParameter("sexo");
+        String setNumeroCNH = request.getParameter("CNHNumber");
+        String setEnd = request.getParameter("endereco");
+        String setCEP = request.getParameter("cep");
+        String setUF = request.getParameter("UF");
+        String setNumero = request.getParameter("numerocasa");
+        String setComplemento = request.getParameter("complemento");
+        String setBairro = request.getParameter("bairro");
+        String setTelefone = request.getParameter("tel");
+        String setEmail = request.getParameter("email");
+        String setCidade = request.getParameter("cidade");
+
+        if (nomeCompleto == null || cpf == null || DataNasc == null || setNumeroCNH == null || setEnd == null || setCEP == null
+                || setNumero == null || setBairro == null || setTelefone == null || setEmail == null || setCidade == null) {
+
+            request.setAttribute("erro", "Campo(s) nulo(s)");
             RequestDispatcher dispatcher
                     = request.getRequestDispatcher("/WEB-INF/jsp/editarCliente.jsp");
             dispatcher.forward(request, response);
-         }
+            return;
+        }
+        if (nomeCompleto.isEmpty() || cpf.isEmpty() || DataNasc.isEmpty() || setNumeroCNH.isEmpty()
+                || setEnd.isEmpty() || setCEP.isEmpty() || setNumero.isEmpty() || setBairro.isEmpty() || setTelefone.isEmpty() || setEmail.isEmpty()
+                || setCidade.isEmpty()) {
+
+            request.setAttribute("erro", "Campo(s) vazio(s)");
+            RequestDispatcher dispatcher
+                    = request.getRequestDispatcher("/WEB-INF/jsp/editarCliente.jsp");
+            dispatcher.forward(request, response);
+            return;
+        }
+
+        String Atualcpf = request.getParameter("atualCPF");
         ClienteFisico cli = new ClienteFisico();
-        cli.setCPF(cpf);
+//        cli.setCPF(cpf);
         cli.setNomeCompleto(request.getParameter("nomecompleto"));
-        cli.setDataNasc(request.getParameter("dateofbirth"));
+        cli.setDataNasc(request.getParameter("datanasc"));
         cli.setSexo(request.getParameter("sexo"));
-        cli.setNumeroCnh(request.getParameter("CNHNumber"));
-        cli.setEnd(request.getParameter("address"));
+        cli.setNumeroCNH(request.getParameter("CNHNumber"));
+        cli.setEnd(request.getParameter("endereco"));
+        cli.setCEP(request.getParameter("cep"));
         cli.setUF(request.getParameter("UF"));
         cli.setNumero(request.getParameter("numerocasa"));
         cli.setComplemento(request.getParameter("complemento"));
         cli.setBairro(request.getParameter("bairro"));
         cli.setTelefone(request.getParameter("tel"));
         cli.setEmail(request.getParameter("email"));
-          cli.setCidade(request.getParameter("cidade"));
-        ClienteDao cliDao= new ClienteDao(); 
+        cli.setCidade(request.getParameter("cidade"));
+        ClienteDao cliDao = new ClienteDao();
         try {
-            cliDao.Atualizar(cli,Atualcpf);
+            cliDao.Atualizar(cli, Atualcpf);
         } catch (SQLException ex) {
             Logger.getLogger(CadastraClienteFisico.class.getName()).log(Level.SEVERE, null, ex);
         }
-         RequestDispatcher dispatcher
-                    = request.getRequestDispatcher("/WEB-INF/jsp/editarCliente.jsp");
-            dispatcher.forward(request, response);
+        RequestDispatcher dispatcher
+                = request.getRequestDispatcher("/WEB-INF/jsp/consultarCliente.jsp");
+        dispatcher.forward(request, response);
     }
 }

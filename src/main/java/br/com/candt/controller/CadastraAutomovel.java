@@ -35,20 +35,22 @@ public class CadastraAutomovel extends HttpServlet {
             throws ServletException, IOException {
         Automovel auto = new Automovel();
         AutomovelDAO dao = new AutomovelDAO();
+        String r=request.getParameter("renavam");
+     
+       String val=request.getParameter("val");
         auto.setMarca(request.getParameter("marca"));
         auto.setModelo(request.getParameter("model"));
         auto.setAno(request.getParameter("anoAuto"));
         auto.setPlaca(request.getParameter("placa"));
         auto.setCategoria(request.getParameter("categoria"));
-
         auto.setRenavam(request.getParameter("renavam"));
         auto.setNumeroChassi(request.getParameter("nchassi"));
-        auto.setValorDeLocacao(request.getParameter("val"));
+        auto.setValorDeLocacao(Double.parseDouble(val));
         auto.setCor(request.getParameter("cor"));
         auto.setPortas(request.getParameter("portas"));
-        auto.setCombusitvel(request.getParameter("combustivel"));
+        auto.setCombustivel(request.getParameter("combustivel"));
         auto.setKilometragem(request.getParameter("KMs"));
-        auto.setDescrição(request.getParameter("desc"));
+        auto.setDescricao(request.getParameter("desc"));
         try {
             dao.incluirComTransacao(auto);
         } catch (SQLException ex) {

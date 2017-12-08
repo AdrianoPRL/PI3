@@ -35,21 +35,54 @@ public class CadastraClienteFisico extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
+        String nomeCompleto = request.getParameter("nomecompleto");
         String cpf = request.getParameter("cpf");
-        if (cpf.isEmpty()) {
-            request.setAttribute("msgErro", "campo não pode ser vazio");
+        String DataNasc = request.getParameter("datanasc");
+        String setSexo = request.getParameter("sexo");
+        String setNumeroCNH = request.getParameter("CNHNumber");
+        String setEnd = request.getParameter("endereco");
+        String setCEP = request.getParameter("cep");
+        String setUF = request.getParameter("UF");
+        String setNumero = request.getParameter("numerocasa");
+        String setComplemento = request.getParameter("complemento");
+        String setBairro = request.getParameter("bairro");
+        String setTelefone = request.getParameter("tel");
+        String setEmail = request.getParameter("email");
+        String setCidade = request.getParameter("cidade");
+        
+        if (nomeCompleto==null||cpf==null||DataNasc==null||setNumeroCNH==null||setEnd==null||setCEP==null||
+                setNumero==null||setBairro==null||setTelefone==null||setEmail==null||setCidade==null)
+                { 
+                                   
+                    
+            request.setAttribute("erro", "Campo(s) nulo(s)");
             RequestDispatcher dispatcher
                     = request.getRequestDispatcher("/WEB-INF/jsp/cadastroFisico.jsp");
             dispatcher.forward(request, response);
+            return;
         }
+        if (nomeCompleto.isEmpty()||cpf.isEmpty()||DataNasc.isEmpty()||setNumeroCNH.isEmpty()||
+                setEnd.isEmpty()||setCEP.isEmpty()||setNumero.isEmpty()||setBairro.isEmpty()||setTelefone.isEmpty()||setEmail.isEmpty()
+                ||setCidade.isEmpty())
+                { 
+
+            request.setAttribute("erro", "Campo(s) vazio(s)");
+            RequestDispatcher dispatcher
+                    = request.getRequestDispatcher("/WEB-INF/jsp/cadastroFisico.jsp");
+            dispatcher.forward(request, response);
+            return;
+        }
+        
+
         ClienteFisico cli = new ClienteFisico();
         cli.setCPF(cpf);
-    
+
         cli.setNomeCompleto(request.getParameter("nomecompleto"));
         cli.setDataNasc(request.getParameter("datanasc"));
         cli.setSexo(request.getParameter("sexo"));
-        cli.setNumeroCnh(request.getParameter("CNHNumber"));
-        cli.setEnd(request.getParameter("address"));
+        cli.setNumeroCNH(request.getParameter("CNHNumber"));
+        cli.setEnd(request.getParameter("endereco"));
         cli.setCEP(request.getParameter("cep"));
         cli.setUF(request.getParameter("UF"));
         cli.setNumero(request.getParameter("numerocasa"));
@@ -61,9 +94,14 @@ public class CadastraClienteFisico extends HttpServlet {
         ClienteDao cliDao = new ClienteDao();
         try {
             cliDao.incluirComTransacao(cli);
+            
         } catch (SQLException ex) {
             Logger.getLogger(CadastraClienteFisico.class.getName()).log(Level.SEVERE, null, ex);
         }
+        request.setAttribute("sucess","Sucesso");
+        RequestDispatcher dispatcher
+                = request.getRequestDispatcher("/WEB-INF/jsp/cadastroFisico.jsp");
+        dispatcher.forward(request, response);
 
     }
 

@@ -19,11 +19,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 @WebServlet(name = "editarAuto", urlPatterns = {"/editarAuto"})
 public class editarAuto extends HttpServlet {
 
-       @Override
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher dispatcher
@@ -36,27 +35,31 @@ public class editarAuto extends HttpServlet {
             throws ServletException, IOException {
         Automovel auto = new Automovel();
         AutomovelDAO dao = new AutomovelDAO();
+              
+        String atualRenavam=request.getParameter("atualrenavam");
+        String val = request.getParameter("val");
         auto.setMarca(request.getParameter("marca"));
         auto.setModelo(request.getParameter("model"));
         auto.setAno(request.getParameter("anoAuto"));
         auto.setPlaca(request.getParameter("placa"));
         auto.setCategoria(request.getParameter("categoria"));
-        auto.setRenavam(request.getParameter("renavam"));
+        auto.setRenavam(atualRenavam);
         auto.setNumeroChassi(request.getParameter("nchassi"));
+        auto.setValorDeLocacao(Double.parseDouble(val));
         auto.setCor(request.getParameter("cor"));
         auto.setPortas(request.getParameter("portas"));
-        auto.setCombusitvel(request.getParameter("combustivel"));
+        auto.setCombustivel(request.getParameter("combustivel"));
         auto.setKilometragem(request.getParameter("KMs"));
-        auto.setDescrição(request.getParameter("desc"));
-        String atualRenavam=(request.getParameter("atualRenavam"));
-           try {
-               dao.Atualizar(auto,atualRenavam);
-           } catch (SQLException ex) {
-               Logger.getLogger(editarAuto.class.getName()).log(Level.SEVERE, null, ex);
-           }
+        auto.setDescricao(request.getParameter("desc"));
+        try {
+            dao.Atualizar(auto, atualRenavam);
+        } catch (SQLException ex) {
+            Logger.getLogger(editarAuto.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
-        response.sendRedirect(request.getContextPath() + "/consultarAutomovel");
+        RequestDispatcher dispatcher
+                = request.getRequestDispatcher("/WEB-INF/jsp/consultarAutomovel.jsp");
+        dispatcher.forward(request, response);
     }
-    
-}
 
+}
