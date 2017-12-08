@@ -14,7 +14,7 @@
         <script src="js/criaCampo.js" type="text/javascript"></script>
 
         <link rel="shortcut icon" href="${pageContext.request.contextPath}/img/icon.png" type="image/x-icon" />
-        <title>concluir Venda</title>
+        <title>concluirVendaJ</title>
     </head>
     <body style="background-image: url(${pageContext.request.contextPath}/img/fundo-site.jpg );">
         <header></header>	
@@ -78,40 +78,17 @@
 
                                     <div class="form-group col-md-6">
                                         <label for="Name">Nome completo/Nome fantasia</label>
-                                        <input name="nomecompleto" type="text"  id="Name"class="form-control" disabled="true" placeholder="Nome completo" value="<c:out value="${sessionScope.usuario.nomeCompleto}"/>">
+                                        <input name="nomecompleto" type="text"  id="Name"class="form-control" disabled="true" placeholder="Nome completo" value="<c:out value="${sessionScope.usuario.nomeFantasia}"/>">
 
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="inputPassword4">CPF</label>
-                                        <input type="text" class="form-control" id="cpf"  disabled="true" name="cpf" maxlength="11"value="<c:out value="${sessionScope.usuario.CPF}"/>">
+                                        <input type="text" class="form-control" id="cpf"  disabled="true" name="cpf" maxlength="11"value="<c:out value="${sessionScope.usuario.CNPJ}"/>">
                                     </div>
 
                                 </div>
 
-                                <div class="form-row">
 
-                                    <div class="form-group col-md-6">
-                                        <label for="numeroCNH" class=" control-label ">Numero da CNH</label>
-
-                                        <input type="text " class="form-control" id="NumeroCNH" disabled="true"  name="CNHNumber" value="<c:out value="${sessionScope.usuario.numeroCNH}"/>">
-                                    </div>
-                                    <div class="form-group col-md-2">
-                                        <label for="inputState">Categoria da CNH</label>
-                                        <select id="cat" class="form-control " disabled="true" name="categoria">
-                                            <option selected>Categoria...</option>
-                                            <option value="A">A</option>
-                                            <option value="B">B</option>
-                                            <option value="C">C</option>
-                                            <option value="D">D</option>
-                                            <option value="E">E</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group col-md-4">
-                                        <label for="Val" class=" control-label ">Validade da CNH</label>
-
-                                        <input type="text " class="form-control" disabled="true" id="Val" placeholder="Validade da CNH" name="valCNH">
-                                    </div>
-                                </div>
                                 <div class="form-row">
                                     <legend>Informações do Veiculo</legend>              
                                     <div class="form-row">
@@ -137,13 +114,11 @@
                                                                 <tbody>
 
 
-
                                                                     <tr>
                                                                         <td><c:out value="${sessionScope.automovel.renavam}"/></td>
                                                                         <td><c:out value="${sessionScope.automovel.placa}"/></td>
                                                                         <td><c:out value="${sessionScope.automovel.modelo}"/></td>
                                                                         <td><c:out value="${sessionScope.automovel.marca}"/></td>
-
                                                                     </tr>
 
 
@@ -176,13 +151,13 @@
                     <div class="">
                         <div class="panel-heading">
                             <div class="panel-body">
-                                <form action="./venda" method="post">
+                                <form action="./ConcluirVendaJuridica" method="post">
                                     <div class="form-row">
 
                                         <legend>Detalhes do  aluguel </legend>
 
-                                        <input name="cli" class="sla"  value="${sessionScope.usuario.CPF}">
-                                        <input name="auto" class="sla"  value="${sessionScope.automovel.renavam}">
+                                        <input name="cli" class="sla"  value="${sessionScope.usuario.CNPJ}">
+                                        <input name="autot" class="sla"  value="${sessionScope.automovel.renavam}">                                     
                                         <div class="form-group col-md-6">
                                             <label for="dataE">Data de entrega</label>
                                             <input type="text" class="form-control" id="dataE" name="dataE"  maxlength="10"onkeypress="mascara(this, '##/##/####')">
@@ -222,10 +197,10 @@
                                     <div class="form-row">
 
 
-                                        <div class="form-group col-md-4">
+                                        <div class="form-group col-md-5 ei">
                                             <div class="form-row">
                                                 <div class="form-group col-md-10">
-                                                    <label for="Total" >Tarifa</label>
+                                                    <label for="Tarifas" >Tarifa</label>
                                                     <input type="text " class="form-control" id="Tarifas" placeholder="Digite o total" name="tarifa">
                                                 </div>
 
@@ -233,32 +208,32 @@
                                             </div>
 
                                         </div>
+
                                         <div class="form-row">
-                                            <div class="form-group col-md-4">
+                                            <div class="form-group col-md-3">
                                                 <label for="Total" >Total</label>
                                                 <input type="text " class="form-control" id="Total" placeholder="Digite o total" name="total">
                                             </div>
+
+
                                         </div>
+                                        <div class="form-group col-md-9">
+                                            <select name="filial">  
+                                                <c:forEach var="elemento" items="${filiais}">  
+
+                                                    <option name="filial" value="<c:out value="${elemento.id}" />">${elemento.nome}      </option>  
+
+                                                </c:forEach>  
+                                            </select>
+                                        </div>
+
                                         <div class="form-row">
-                                            <div class="form-group col-md-9">
-                                                <select name="filial">  
-                                                    <c:forEach var="elemento" items="${filiais}">  
-
-                                                        <option name="filial"value="<c:out value="${elemento.id}" />"">${elemento.nome}      </option>  
-
-                                                    </c:forEach>  
-                                                </select>
-                                            </div>
+                                            <div class="form-group col-md-5 col-sm-offset-5">
+                                                <button type="submit" class="btn btn-success">Confirmar</button>
+                                                <button type="reset" class="btn btn-danger">Cancelar</button>
+                                            </div> 
                                         </div>
-
                                     </div>
-                                    <div class="form-row">
-                                        <div class="form-group col-md-5 col-sm-offset-5">
-                                            <button type="submit" class="btn btn-success">Confirmar</button>
-                                            <button type="reset" class="btn btn-danger">Cancelar</button>
-                                        </div> 
-                                    </div>
-
                                 </form>
                             </div>
                         </div>

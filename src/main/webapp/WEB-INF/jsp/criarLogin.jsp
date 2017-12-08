@@ -21,7 +21,7 @@
         <input type="checkbox" id="chk2"/>
         <label for="chk2"class="menu-icon2"><span class="glyphicon glyphicon-option-vertical" aria-hidden="true"></span></label>
         <div class="bg"></div>
-        <nav class="menu" id="principal">
+    <nav class="menu" id="principal">
             <ul>
                 <li class="user"><span class="glyphicon glyphicon-user" aria-hidden="true"></span><c:out value="${sessionScope.username.nomeCompleto}" /></li>
                 <li><a href="" class="voltar">Voltar</a></li>
@@ -29,8 +29,48 @@
                 <li><a href="#Cliente">Cliente <span>+</span></a></li>
                 <li><a href="#Automovel"> Automovel <span>+</span></a></li>
                 <li><a href="selecionarCliente  ">Venda</a></li>
+                <li><a href="encerrarVenda  ">EncerrarVenda</a></li>
+                <li><a href="encerrarVendaJ  ">EncerrarVendaJ</a></li>
+                <li><a href="Relatorio">Relatorio</a></li>
 
-                <li><a href="#">Relatorio</a></li>
+                <li><a href="criarLogin">Criar Login</a></li>
+
+            </ul>
+        </nav>
+        <nav class="menu" id="Cliente">
+            <ul>
+                <li><a href="#" class="voltar">Voltar</a></li>
+                <li><a href="CadastrarClienteF">Cadastro Fisico</a></li>
+                <li><a href="CadastrarClienteJ">Cadastro Juridico</a></li>
+                <li><a href="consultarCliente">Consultar</a></li>
+            </ul>
+        </nav>
+        <nav class="menu" id="Automovel">
+            <ul>
+                <li><a href="#" class="voltar">Voltar</a></li>
+                <li><a href="cadastrarAutomovel">Cadastrar</a></li>
+                <li><a href="consultarAutomovel">Consultar</a></li>
+
+            </ul>
+        </nav>
+        <div class="bg2"></div>
+        <nav class="menu" id="navright">
+            <ul>
+                <li><a href="" class="voltar2">Voltar</a></li>
+                <li><a href="AlterarSenha" >Trocar Senha</a></li>
+                <li><a href="./logout">Logout</a></li>
+            </ul>
+        </nav> <nav class="menu" id="principal">
+            <ul>
+                <li class="user"><span class="glyphicon glyphicon-user" aria-hidden="true"></span><c:out value="${sessionScope.username.nomeCompleto}" /></li>
+                <li><a href="" class="voltar">Voltar</a></li>
+                <li><a href="home">Home</a></li>
+                <li><a href="#Cliente">Cliente <span>+</span></a></li>
+                <li><a href="#Automovel"> Automovel <span>+</span></a></li>
+                <li><a href="selecionarCliente  ">Venda</a></li>
+                <li><a href="encerrarVenda  ">EncerrarVenda</a></li>
+                <li><a href="encerrarVendaJ  ">EncerrarVendaJ</a></li>
+                <li><a href="Relatorio">Relatorio</a></li>
 
                 <li><a href="criarLogin">Criar Login</a></li>
 
@@ -60,7 +100,6 @@
                 <li><a href="./logout">Logout</a></li>
             </ul>
         </nav>
-        
             <div class="container">
                 <div class="row centered-form">
                     <div class="">

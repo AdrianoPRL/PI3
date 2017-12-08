@@ -21,7 +21,7 @@
         <input type="checkbox" id="chk2"/>
         <label for="chk2"class="menu-icon2"><span class="glyphicon glyphicon-option-vertical" aria-hidden="true"></span></label>
         <div class="bg"></div>
-        <nav class="menu" id="principal">
+     <nav class="menu" id="principal">
             <ul>
                 <li class="user"><span class="glyphicon glyphicon-user" aria-hidden="true"></span><c:out value="${sessionScope.username.nomeCompleto}" /></li>
                 <li><a href="" class="voltar">Voltar</a></li>
@@ -29,8 +29,9 @@
                 <li><a href="#Cliente">Cliente <span>+</span></a></li>
                 <li><a href="#Automovel"> Automovel <span>+</span></a></li>
                 <li><a href="selecionarCliente  ">Venda</a></li>
-
-                <li><a href="#">Relatorio</a></li>
+                <li><a href="encerrarVenda  ">EncerrarVenda</a></li>
+                <li><a href="encerrarVendaJ  ">EncerrarVendaJ</a></li>
+                <li><a href="Relatorio">Relatorio</a></li>
 
                 <li><a href="criarLogin">Criar Login</a></li>
 
@@ -82,7 +83,7 @@
                                     </div>
                                     <div class="form-group col-md-2">
                                         <label for="CNPJ">CNPJ</label>
-                                        <input type="text" class="form-control" id="cnpj" placeholder="CPF" name="cnpj" maxlength="11">
+                                        <input type="text" class="form-control" id="cnpj" placeholder="cnpj" name="cnpj" maxlength="11">
                                     </div>
                                     
                                 </div>
@@ -170,31 +171,7 @@
 
                                     </div>
                                 </div>
-                               
-                                <div class="form-row">
-                              
-                                    <div class="form-group col-md-6">
-                                           <label for="numeroCNH" class=" control-label ">Numero da CNH</label>
-
-                                           <input type="text " class="form-control" id="NumeroCNH" placeholder="Numero da CNH" name="CNHNumber">
-                                       </div>
-                                     <div class="form-group col-md-2">
-                                           <label for="inputState">Categoria da CNH</label>
-                                         <select id="cat" class="form-control " name="categoria">
-                                            <option selected>Categoria...</option>
-                                            <option value="A">A</option>
-                                            <option value="B">B</option>
-                                            <option value="C">C</option>
-                                            <option value="D">D</option>
-                                            <option value="E">E</option>
-                                        </select>
-                                      </div>
-                                    <div class="form-group col-md-4">
-                                        <label for="Val" class=" control-label ">Validade da CNH</label>
-
-                                        <input type="text " class="form-control" id="Val" placeholder="Validade da CNH" name="valCNH">
-                                    </div>
-                                    </div>
+                  
                                 <div class="form-row">
                                 <div class="form-group col-md-5 col-sm-offset-5">
                                     <button type="submit" class="btn btn-success">Confirmar</button>

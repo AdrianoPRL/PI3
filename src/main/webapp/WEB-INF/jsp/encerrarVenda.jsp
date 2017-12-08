@@ -1,4 +1,5 @@
 
+
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -13,7 +14,7 @@
         <link href="css/loca.css" rel="stylesheet" type="text/css"/>
         <script src="js/function.js" type="text/javascript"></script>
         <link rel="shortcut icon" href="${pageContext.request.contextPath}/img/icon.png" type="image/x-icon" />
-        <title>consultar CLiente</title>
+        <title>encerrar Venda</title>
     </head>
     <body style="background-image: url(${pageContext.request.contextPath}/img/fundo-site.jpg );">
         <header></header>	
@@ -23,7 +24,46 @@
         <input type="checkbox" id="chk2"/>
         <label for="chk2"class="menu-icon2"><span class="glyphicon glyphicon-option-vertical" aria-hidden="true"></span></label>
         <div class="bg"></div>
-     <nav class="menu" id="principal">
+    <nav class="menu" id="principal">
+            <ul>
+                <li class="user"><span class="glyphicon glyphicon-user" aria-hidden="true"></span><c:out value="${sessionScope.username.nomeCompleto}" /></li>
+                <li><a href="" class="voltar">Voltar</a></li>
+                <li><a href="home">Home</a></li>
+                <li><a href="#Cliente">Cliente <span>+</span></a></li>
+                <li><a href="#Automovel"> Automovel <span>+</span></a></li>
+                <li><a href="selecionarCliente  ">Venda</a></li>
+                <li><a href="encerrarVenda  ">EncerrarVenda</a></li>
+                <li><a href="encerrarVendaJ  ">EncerrarVendaJ</a></li>
+                <li><a href="Relatorio">Relatorio</a></li>
+
+                <li><a href="criarLogin">Criar Login</a></li>
+
+            </ul>
+        </nav>
+        <nav class="menu" id="Cliente">
+            <ul>
+                <li><a href="#" class="voltar">Voltar</a></li>
+                <li><a href="CadastrarClienteF">Cadastro Fisico</a></li>
+                <li><a href="CadastrarClienteJ">Cadastro Juridico</a></li>
+                <li><a href="consultarCliente">Consultar</a></li>
+            </ul>
+        </nav>
+        <nav class="menu" id="Automovel">
+            <ul>
+                <li><a href="#" class="voltar">Voltar</a></li>
+                <li><a href="cadastrarAutomovel">Cadastrar</a></li>
+                <li><a href="consultarAutomovel">Consultar</a></li>
+
+            </ul>
+        </nav>
+        <div class="bg2"></div>
+        <nav class="menu" id="navright">
+            <ul>
+                <li><a href="" class="voltar2">Voltar</a></li>
+                <li><a href="AlterarSenha" >Trocar Senha</a></li>
+                <li><a href="./logout">Logout</a></li>
+            </ul>
+        </nav> <nav class="menu" id="principal">
             <ul>
                 <li class="user"><span class="glyphicon glyphicon-user" aria-hidden="true"></span><c:out value="${sessionScope.username.nomeCompleto}" /></li>
                 <li><a href="" class="voltar">Voltar</a></li>
@@ -63,12 +103,11 @@
                 <li><a href="./logout">Logout</a></li>
             </ul>
         </nav>
-
         <div class="container pesq">
             <div class="row centered-form">
                 <div class="panel-body">
-                    
-                    <form action="./consultarCliente" method="post">
+
+                    <form action="./encerrarVenda" method="post">
                         <div class="col-md-5">
                             <div class="input-group col-md-12">
 
@@ -99,8 +138,8 @@
 
         <div class="container dados">
             <c:if test="${not empty excluir}">
-                        <strong><c:out value="${excluir}" /></strong>
-                    </c:if>
+                <strong><c:out value="${excluir}" /></strong>
+            </c:if>
             <div class="row centered-form">
 
                 <div class="">
@@ -113,31 +152,32 @@
                                     <thead>
 
                                         <tr>
-                                            <th>Nome Completo</th>
-                                            <th>CPF</th>
-                                            <th>Cidade</th>
-                                            <th>Bairro</th>
+                                            <th>clienteCPF</th>
+                                            <th>dataDevolucao</th>
+                                            <th>dataDeEntrega</th>
+                                            <th>valorTotal</th>
+                                              <th>Modelo</th>
                                             <th class="actions">Ações</th>
                                         </tr>
                                     </thead>
                                     <tbody>
 
 
-                                        <c:forEach items="${model}" var="item">
+                                        <c:forEach items="${vendas}" var="item">
                                             <tr>
-                                                <td>${item.nomeCompleto}</td>
-                                                <td>${item.CPF}</td>
-                                                <td>${item.cidade}</td>
-                                                <td>${item.bairro}</td>
+                                                <td>${item.cliente.CPF}</td>
+                                                <td>${item.dataDeDevolucao}</td>
+                                                <td>${item.datadeEntrega}</td>
+                                                <td>${item.valorTotal}</td>
+                                                <td>${item.auto.modelo}</td>
                                                 <td class="actions">
-                                                    <form action="./consultarCliente" method="post">
+                                                    <form action="./encerrarVenda" method="post">
 
+                                                        <input name="id" class="sla"  type="text"  value="${item.id}">
+                                                        <input name="renavam" class="sla"   type="text"  value="${item.auto.renavam}">
 
-                                                        <input name="repeat" class="sla"  value="${item.CPF}">
-                                                        
+                                                        <button type="submit" name="terminar" value="encerrar" class=" btn btn-warning btn-xs botao">Encerrar</button>
 
-                                                        <button type="submit" name="tipodeuser" value="editar" class=" btn btn-warning btn-xs botao">Editar</button>
-                                                        <button type="submit" name="tipodeuser" value="excluir" class=" btn btn-danger btn-xs botao">Excluir</button>
                                                     </form>
                                                 </td>
                                             </tr>

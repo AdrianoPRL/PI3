@@ -13,7 +13,7 @@
         <link href="css/loca.css" rel="stylesheet" type="text/css"/>
         <script src="js/function.js" type="text/javascript"></script>
         <link rel="shortcut icon" href="${pageContext.request.contextPath}/img/icon.png" type="image/x-icon" />
-        <title>consultar CLiente</title>
+        <title>consulta Juridica</title>
     </head>
     <body style="background-image: url(${pageContext.request.contextPath}/img/fundo-site.jpg );">
         <header></header>	
@@ -23,7 +23,7 @@
         <input type="checkbox" id="chk2"/>
         <label for="chk2"class="menu-icon2"><span class="glyphicon glyphicon-option-vertical" aria-hidden="true"></span></label>
         <div class="bg"></div>
-     <nav class="menu" id="principal">
+        <nav class="menu" id="principal">
             <ul>
                 <li class="user"><span class="glyphicon glyphicon-user" aria-hidden="true"></span><c:out value="${sessionScope.username.nomeCompleto}" /></li>
                 <li><a href="" class="voltar">Voltar</a></li>
@@ -68,7 +68,7 @@
             <div class="row centered-form">
                 <div class="panel-body">
                     
-                    <form action="./consultarCliente" method="post">
+                    <form action="./consultarClienteJ" method="post">
                         <div class="col-md-5">
                             <div class="input-group col-md-12">
 
@@ -113,8 +113,8 @@
                                     <thead>
 
                                         <tr>
-                                            <th>Nome Completo</th>
-                                            <th>CPF</th>
+                                            <th>RazaoSocial</th>
+                                            <th>CNPJ</th>
                                             <th>Cidade</th>
                                             <th>Bairro</th>
                                             <th class="actions">Ações</th>
@@ -125,15 +125,15 @@
 
                                         <c:forEach items="${model}" var="item">
                                             <tr>
-                                                <td>${item.nomeCompleto}</td>
-                                                <td>${item.CPF}</td>
+                                                <td>${item.razaoSocial}</td>
+                                                <td>${item.CNPJ}</td>
                                                 <td>${item.cidade}</td>
                                                 <td>${item.bairro}</td>
                                                 <td class="actions">
-                                                    <form action="./consultarCliente" method="post">
+                                                    <form action="./consultarClienteJ" method="post">
 
 
-                                                        <input name="repeat" class="sla"  value="${item.CPF}">
+                                                        <input name="repeat" class="sla"  value="${item.CNPJ}">
                                                         
 
                                                         <button type="submit" name="tipodeuser" value="editar" class=" btn btn-warning btn-xs botao">Editar</button>

@@ -28,8 +28,9 @@
                 <li><a href="#Cliente">Cliente <span>+</span></a></li>
                 <li><a href="#Automovel"> Automovel <span>+</span></a></li>
                 <li><a href="selecionarCliente  ">Venda</a></li>
-
-                <li><a href="#">Relatorio</a></li>
+                <li><a href="encerrarVenda  ">EncerrarVenda</a></li>
+                <li><a href="encerrarVendaJ  ">EncerrarVendaJ</a></li>
+                <li><a href="Relatorio">Relatorio</a></li>
 
                 <li><a href="criarLogin">Criar Login</a></li>
 
@@ -87,5 +88,5 @@
             </a>
         </div>
         
-<!---->    </body>
+        <!---->    </body>
 </html>

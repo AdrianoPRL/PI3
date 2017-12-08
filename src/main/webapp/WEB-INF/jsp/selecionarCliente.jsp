@@ -14,10 +14,10 @@
         <link href="css/loca.css" rel="stylesheet" type="text/css"/>
         <script src="js/function.js" type="text/javascript"></script>
         <link rel="shortcut icon" href="${pageContext.request.contextPath}/img/icon.png" type="image/x-icon" />
-        <title>Locação</title>
+        <title>selecionar cli</title>
     </head>
     <body style="background-image: url(${pageContext.request.contextPath}/img/fundo-site.jpg );">
-         <header></header>	
+        <header></header>	
         <input type="checkbox" id="chk"/>
 
         <label for="chk"class="menu-icon"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span></label>
@@ -32,8 +32,9 @@
                 <li><a href="#Cliente">Cliente <span>+</span></a></li>
                 <li><a href="#Automovel"> Automovel <span>+</span></a></li>
                 <li><a href="selecionarCliente  ">Venda</a></li>
-
-                <li><a href="#">Relatorio</a></li>
+                <li><a href="encerrarVenda  ">EncerrarVenda</a></li>
+                <li><a href="encerrarVendaJ  ">EncerrarVendaJ</a></li>
+                <li><a href="Relatorio">Relatorio</a></li>
 
                 <li><a href="criarLogin">Criar Login</a></li>
 
@@ -78,7 +79,7 @@
 
                                 </div>
                             </div>
-                         
+
 
 
                         </div>
@@ -114,19 +115,19 @@
                                     <tbody>
 
 
-                                        <c:forEach items="${model}" var="item">
+                                        <c:forEach items="${fisico}" var="item">
                                             <tr>
                                                 <td>${item.nomeCompleto}</td>
                                                 <td>${item.CPF}</td>
-                                                <td>${item.numeroCnh}</td>
-                                                <td>${item.bairro}</td>
+                                                <td>${item.email}</td>
+                                                <td>${item.telefone}</td>
                                                 <td class="actions">
-                                                    <form action="./selecionarCliente" method="post">
+                                                    <form action="./loca" method="post">
 
-                                                        <button type="submit" name="tipodeuser" value="selecionar" class=" btn btn-success btn-xs botao">Selecionar</button>
-                                                        <input name="repeat" class="sla"  value="${item.CPF}">
+                                                        <button type="submit" name="tipodeuser" value="fis" class=" btn btn-success btn-xs botao">Selecionar</button>
 
-                                                        
+                                                        <input name="cli" class="sla"  value="${item.CPF}">
+
                                                     </form>
                                                 </td>
                                             </tr>
@@ -138,11 +139,67 @@
                                 </table>
 
                             </div>
+
                         </div>
                     </div>
                 </div><!--
     
                 --></div>
         </div>
+        <div class="container dados">
+            <div class="row centered-form">
+
+                <div class="">
+                    <div class="panel-heading">
+                        <div class="panel-body">
+
+
+                            <div class="form-row">
+                                <table class="table table-striped" cellspacing="0" cellpadding="0">
+                                    <thead>
+
+                                        <tr>
+                                            <th>Razão Social</th>
+                                            <th>Cnpj</th>
+                                            <th>Inscrição Estadual</th>
+                                            <th>bairro</th>
+                                            <th class="actions">Ações</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+
+                                        <c:forEach items="${juridico}" var="item">
+                                            <tr>
+                                                <td>${item.CNPJ}</td>
+                                                <td>${item.bairro}</td>
+                                                <td>${item.email}</td>
+                                                <td>${item.telefone}</td>
+                                                <td class="actions">
+                                                    <form action="./loca" method="post">
+
+                                                        <button type="submit" name="tipodeuser" value="juri" class=" btn btn-success btn-xs botao">Selecionar</button>
+
+
+                                                        <input name="cli" class="sla"  value="${item.CNPJ}">
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        </c:forEach>
+
+
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div><!--
+    
+                --></div>
+        </div>
+
     </body>
 </html>

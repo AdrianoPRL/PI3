@@ -8,15 +8,15 @@
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/Cadastros.css" rel="stylesheet">
         <link href="css/nav.css" rel="stylesheet" type="text/css"/>
-       <link href="css/inputOff.css" rel="stylesheet" type="text/css"/>
-       
+        <link href="css/inputOff.css" rel="stylesheet" type="text/css"/>
+
         <link href="css/loca.css" rel="stylesheet" type="text/css"/>
         <script src="js/function.js" type="text/javascript"></script>
         <link rel="shortcut icon" href="${pageContext.request.contextPath}/img/icon.png" type="image/x-icon" />
-        <title>Locação</title>
+        <title>consultar auto</title>
     </head>
     <body style="background-image: url(${pageContext.request.contextPath}/img/fundo-site.jpg );">
-         <header></header>	
+        <header></header>	
         <input type="checkbox" id="chk"/>
 
         <label for="chk"class="menu-icon"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span></label>
@@ -31,8 +31,48 @@
                 <li><a href="#Cliente">Cliente <span>+</span></a></li>
                 <li><a href="#Automovel"> Automovel <span>+</span></a></li>
                 <li><a href="selecionarCliente  ">Venda</a></li>
+                <li><a href="encerrarVenda  ">EncerrarVenda</a></li>
+                <li><a href="encerrarVendaJ  ">EncerrarVendaJ</a></li>
+                <li><a href="Relatorio">Relatorio</a></li>
 
-                <li><a href="#">Relatorio</a></li>
+                <li><a href="criarLogin">Criar Login</a></li>
+
+            </ul>
+        </nav>
+        <nav class="menu" id="Cliente">
+            <ul>
+                <li><a href="#" class="voltar">Voltar</a></li>
+                <li><a href="CadastrarClienteF">Cadastro Fisico</a></li>
+                <li><a href="CadastrarClienteJ">Cadastro Juridico</a></li>
+                <li><a href="consultarCliente">Consultar</a></li>
+            </ul>
+        </nav>
+        <nav class="menu" id="Automovel">
+            <ul>
+                <li><a href="#" class="voltar">Voltar</a></li>
+                <li><a href="cadastrarAutomovel">Cadastrar</a></li>
+                <li><a href="consultarAutomovel">Consultar</a></li>
+
+            </ul>
+        </nav>
+        <div class="bg2"></div>
+        <nav class="menu" id="navright">
+            <ul>
+                <li><a href="" class="voltar2">Voltar</a></li>
+                <li><a href="AlterarSenha" >Trocar Senha</a></li>
+                <li><a href="./logout">Logout</a></li>
+            </ul>
+        </nav> <nav class="menu" id="principal">
+            <ul>
+                <li class="user"><span class="glyphicon glyphicon-user" aria-hidden="true"></span><c:out value="${sessionScope.username.nomeCompleto}" /></li>
+                <li><a href="" class="voltar">Voltar</a></li>
+                <li><a href="home">Home</a></li>
+                <li><a href="#Cliente">Cliente <span>+</span></a></li>
+                <li><a href="#Automovel"> Automovel <span>+</span></a></li>
+                <li><a href="selecionarCliente  ">Venda</a></li>
+                <li><a href="encerrarVenda  ">EncerrarVenda</a></li>
+                <li><a href="encerrarVendaJ  ">EncerrarVendaJ</a></li>
+                <li><a href="Relatorio">Relatorio</a></li>
 
                 <li><a href="criarLogin">Criar Login</a></li>
 
@@ -96,6 +136,9 @@
 
 
         <div class="container dados">
+            <c:if test="${not empty excluir}">
+                <strong><c:out value="${excluir}" /></strong>
+            </c:if>
             <div class="row centered-form">
 
                 <div class="">
@@ -103,48 +146,48 @@
                         <div class="panel-body">
 
 
-                           <div class="form-row">
-                                    <table class="table table-striped" cellspacing="0" cellpadding="0">
-                                        <thead>
+                            <div class="form-row">
+                                <table class="table table-striped" cellspacing="0" cellpadding="0">
+                                    <thead>
 
+                                        <tr>
+                                            <th>Renavam</th>
+                                            <th>Marca</th>
+                                            <th>Modelo</th>
+                                            <th>Placa</th>
+                                            <th class="actions">Ações</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+
+                                        <c:forEach items="${autos}" var="item">
                                             <tr>
-                                                <th>Renavam</th>
-                                                <th>Marca</th>
-                                                <th>Modelo</th>
-                                                <th>Placa</th>
-                                                <th class="actions">Ações</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
+                                                <td>${item.renavam}</td>
+                                                <td>${item.marca}</td>
+                                                <td>${item.modelo}</td>
+                                                <td>${item.placa}</td>
+                                                <td class="actions">
+                                                    <form action="./consultarAutomovel" method="post">    
 
-
-                                            <c:forEach items="${autos}" var="item">
-                                                <tr>
-                                                    <td>${item.renavam}</td>
-                                                    <td>${item.marca}</td>
-                                                    <td>${item.modelo}</td>
-                                                    <td>${item.placa}</td>
-                                                    <td class="actions">
-                                                          <form action="./consultarAutomovel" method="post">    
-                                                      
-                                                       <button type="submit" name="tipodeuser" value="editar" class=" btn btn-warning btn-xs botao">Editar</button>
+                                                        <button type="submit" name="tipodeuser" value="editar" class=" btn btn-warning btn-xs botao">Editar</button>
                                                         <button type="submit" name="tipodeuser" value="excluir" class=" btn btn-danger btn-xs botao">Excluir</button>
-                                              
+
                                                         <input name="auto" class="sla"  value="${item.renavam}">
-                                                        
-                                                      
-
-                                                        </form>
-                                                    </td>
-                                                </tr>
-                                            </c:forEach>    
 
 
 
-                                        </tbody>
-                                    </table>
-                                   
-                                </div>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        </c:forEach>    
+
+
+
+                                    </tbody>
+                                </table>
+
+                            </div>
                         </div>
                     </div>
                 </div><!--

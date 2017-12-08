@@ -5,7 +5,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Cadastro Fisico</title>
+        <title>Cadastro auto</title>
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/new.css" rel="stylesheet" type="text/css"/>
         <link href="css/nav.css" rel="stylesheet" type="text/css"/>
@@ -29,8 +29,48 @@
                 <li><a href="#Cliente">Cliente <span>+</span></a></li>
                 <li><a href="#Automovel"> Automovel <span>+</span></a></li>
                 <li><a href="selecionarCliente  ">Venda</a></li>
+                <li><a href="encerrarVenda  ">EncerrarVenda</a></li>
+                <li><a href="encerrarVendaJ  ">EncerrarVendaJ</a></li>
+                <li><a href="Relatorio">Relatorio</a></li>
 
-                <li><a href="#">Relatorio</a></li>
+                <li><a href="criarLogin">Criar Login</a></li>
+
+            </ul>
+        </nav>
+        <nav class="menu" id="Cliente">
+            <ul>
+                <li><a href="#" class="voltar">Voltar</a></li>
+                <li><a href="CadastrarClienteF">Cadastro Fisico</a></li>
+                <li><a href="CadastrarClienteJ">Cadastro Juridico</a></li>
+                <li><a href="consultarCliente">Consultar</a></li>
+            </ul>
+        </nav>
+        <nav class="menu" id="Automovel">
+            <ul>
+                <li><a href="#" class="voltar">Voltar</a></li>
+                <li><a href="cadastrarAutomovel">Cadastrar</a></li>
+                <li><a href="consultarAutomovel">Consultar</a></li>
+
+            </ul>
+        </nav>
+        <div class="bg2"></div>
+        <nav class="menu" id="navright">
+            <ul>
+                <li><a href="" class="voltar2">Voltar</a></li>
+                <li><a href="AlterarSenha" >Trocar Senha</a></li>
+                <li><a href="./logout">Logout</a></li>
+            </ul>
+        </nav> <nav class="menu" id="principal">
+            <ul>
+                <li class="user"><span class="glyphicon glyphicon-user" aria-hidden="true"></span><c:out value="${sessionScope.username.nomeCompleto}" /></li>
+                <li><a href="" class="voltar">Voltar</a></li>
+                <li><a href="home">Home</a></li>
+                <li><a href="#Cliente">Cliente <span>+</span></a></li>
+                <li><a href="#Automovel"> Automovel <span>+</span></a></li>
+                <li><a href="selecionarCliente  ">Venda</a></li>
+                <li><a href="encerrarVenda  ">EncerrarVenda</a></li>
+                <li><a href="encerrarVendaJ  ">EncerrarVendaJ</a></li>
+                <li><a href="Relatorio">Relatorio</a></li>
 
                 <li><a href="criarLogin">Criar Login</a></li>
 
@@ -126,9 +166,9 @@
 
                                     </div>
                                     <div class="form-group col-md-2">
-                                        <label for="comb">Combusitvel</label>
+                                        <label for="comb">Combustível</label>
                                         <select id="comb" class="form-control " name="combustivel">
-                                            <option selected>Combusitvel...</option>
+                                            <option selected>Combustível...</option>
                                             <option value="Flex">Flex</option>
                                             <option value="Gasolina">Gasolina</option>
                                             <option value="Etanol">Etanol</option>
@@ -154,10 +194,7 @@
                                         <input type="text" class="form-control" id="desc" placeholder="ex:ABS+ " name="desc">
 
                                     </div>
-                                    <div class="form-group col-md-2">
-                                        <label for="quant">quantidade</label>
-                                        <input type="text" class="form-control" id="quant" placeholder="123" name="quantidade">
-                                    </div>
+                                 
 
                                 </div>
 
