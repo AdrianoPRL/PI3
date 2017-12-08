@@ -29,9 +29,9 @@ public class ClienteJuridico extends Cliente {
         super();
     }
 
-    public ClienteJuridico(String end, String UF, String complemento, String bairro, String telefone,
-            String email, String razaoSocial,String nomeFantasia,String valCNH,String inscricaoEstadual,String CNPJ, String numeroCnh, String categoriaCnh, String cidade, String numero, String CEP) {
-        super(end, UF, complemento, bairro, telefone, email, numeroCnh, categoriaCnh, cidade, numero, CEP,valCNH);
+    public ClienteJuridico( Boolean disabled, String end, String UF, String complemento, String bairro, String telefone,
+            String email, String razaoSocial,String nomeFantasia,String inscricaoEstadual,String CNPJ, String cidade, String numero, String CEP) {
+        super( disabled, end, UF, complemento, bairro, telefone, email, cidade, numero, CEP);
         this.razaoSocial = razaoSocial;
         this.CNPJ = CNPJ;
         this.inscricaoEstadual=inscricaoEstadual;

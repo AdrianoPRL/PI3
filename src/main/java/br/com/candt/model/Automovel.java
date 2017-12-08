@@ -11,18 +11,19 @@ public class Automovel {
     private String kilometragem;
     private String numeroChassi;
     private String cor;
-    private String valorDeLocacao;
+    private Double valorDeLocacao;
     private String portas;
-    private String combusitvel;
-    private String descrição;
-    private int quantidade;
+    private String combustivel;
+    private String descricao;
+    private Boolean disponivel;
+            
     public Automovel() {
-
+        this.disponivel = true;
     }
 
-    public Automovel( int quantidade,String marca, String modelo, String ano, String categoria, String placa,
-            String renavam, String kilometragem,  String valorDeLocacao,String numeroChassi, String cor, String portas, String combusitvel, String descrição) {
-        this.quantidade=quantidade;
+    public Automovel( String marca, String modelo, String ano, String categoria, String placa,
+            String renavam, String kilometragem,  Double valorDeLocacao,String numeroChassi, String cor, String portas, String combustivel, String descricao) {
+       
         this.marca = marca;
         this.modelo = modelo;
         this.ano = ano;
@@ -33,9 +34,10 @@ public class Automovel {
         this.numeroChassi = numeroChassi;
         this.cor = cor;
         this.portas = portas;
-        this.combusitvel = combusitvel;
-        this.descrição = descrição;
-        this.valorDeLocacao=valorDeLocacao;
+        this.combustivel = combustivel;
+        this.descricao = descricao;
+        this.valorDeLocacao  =  valorDeLocacao;
+        this.disponivel = true;
     }
 
     public String getMarca() {
@@ -118,36 +120,38 @@ public class Automovel {
         this.portas = portas;
     }
 
-    public String getCombusitvel() {
-        return combusitvel;
+    public String getCombustivel() {
+        return combustivel;
     }
 
-    public void setCombusitvel(String combusitvel) {
-        this.combusitvel = combusitvel;
+    public void setCombustivel(String combustivel) {
+        this.combustivel = combustivel;
     }
 
-    public String getDescrição() {
-        return descrição;
+    public String getDescricao() {
+        return descricao;
     }
 
-    public void setDescrição(String descrição) {
-        this.descrição = descrição;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
-    public String getValorDeLocacao() {
+    public Double getValorDeLocacao() {
         return valorDeLocacao;
     }
 
-    public void setValorDeLocacao(String valorDeLocacao) {
+    public void setValorDeLocacao(Double valorDeLocacao) {
         this.valorDeLocacao = valorDeLocacao;
     }
 
-    public int getQuantidade() {
-        return quantidade;
+    public Boolean getDisponivel() {
+        return disponivel;
     }
 
-    public void setQuantidade(int quantidade) {
-        this.quantidade = quantidade;
+    public void setDisponivel(Boolean disponivel) {
+        this.disponivel = disponivel;
     }
+
+   
 
 }

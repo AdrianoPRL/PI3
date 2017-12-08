@@ -4,7 +4,6 @@ import java.util.Date;
 
 public class Cliente {
 
-    private String valCNH;
     private String end;
     private String UF;
     private String complemento;
@@ -12,28 +11,28 @@ public class Cliente {
     private String telefone;
     private String email;
     private String cidade;
-    private String numeroCnh;
-       private String CEP;
-    private String categoriaCnh;
-      private String numero;
+    private String CEP;
+    private String numero;
+    private Boolean disabled;
+    
     public Cliente() {
 
     }
 
-    public Cliente( String end, String UF, String complemento, String bairro, String telefone,
-            String email,String numeroCnh,String categoriaCnh,String cidade,String numero,String CEP,String valCNH) {
-        this.CEP=CEP;
+    public Cliente(Boolean disabled, String end, String UF, String complemento, String bairro, String telefone,
+            String email, String cidade, String numero, String CEP) {
+        this.CEP = CEP;
         this.end = end;
         this.UF = UF;
         this.complemento = complemento;
         this.bairro = bairro;
         this.telefone = telefone;
         this.email = email;
-        this.cidade=cidade;
-        this.numeroCnh=numeroCnh;
-        this.categoriaCnh=categoriaCnh;
-        this.numero=numero;
-        this.valCNH=valCNH;
+        this.cidade = cidade;
+        this.disabled=disabled;
+        
+        this.numero = numero;
+       
     }
 
     public String getCEP() {
@@ -43,6 +42,7 @@ public class Cliente {
 //    /**
 //     * @param CNH the CNH to set
 //     */
+
     public void setCEP(String CEP) {
         this.CEP = CEP;
     }
@@ -125,30 +125,6 @@ public class Cliente {
         this.email = email;
     }
 
-//    public Date getValCnh() {
-//        return valCnh;
-//    }
-//
-//    public void setValCnh(Date valCnh) {
-//        this.valCnh = valCnh;
-//    }
-
-    public String getNumeroCnh() {
-        return numeroCnh;
-    }
-
-    public void setNumeroCnh(String numeroCnh) {
-        this.numeroCnh = numeroCnh;
-    }
-
-    public String getCategoriaCnh() {
-        return categoriaCnh;
-    }
-
-    public void setCategoriaCnh(String categoriaCnh) {
-        this.categoriaCnh = categoriaCnh;
-    }
-
     public String getCidade() {
         return cidade;
     }
@@ -165,12 +141,14 @@ public class Cliente {
         this.numero = numero;
     }
 
-    public String getValCNH() {
-        return valCNH;
+    public Boolean getDisabled() {
+        return disabled;
     }
 
-    public void setValCNH(String valCNH) {
-        this.valCNH = valCNH;
+    public void setDisabled(Boolean disabled) {
+        this.disabled = disabled;
     }
-    
+
+   
+
 }
