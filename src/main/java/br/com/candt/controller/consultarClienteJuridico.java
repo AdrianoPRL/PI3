@@ -20,10 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-/**
- *
- * @author Junior
- */
+
 @WebServlet(name = "consultarClienteJuridico", urlPatterns = {"/consultarClienteJ"})
 public class consultarClienteJuridico extends HttpServlet {
 

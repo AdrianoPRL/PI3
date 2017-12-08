@@ -19,10 +19,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author Junior
- */
 @WebServlet(name = "encerrarVendaJ", urlPatterns = {"/encerrarVendaJ"})
 public class encerrarVendaJ extends HttpServlet {
 

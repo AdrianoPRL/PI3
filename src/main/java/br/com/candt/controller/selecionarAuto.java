@@ -17,10 +17,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author Junior
- */
+
 @WebServlet(name = "selecionarAuto", urlPatterns = {"/selecionarAuto"})
 public class selecionarAuto extends HttpServlet {
 

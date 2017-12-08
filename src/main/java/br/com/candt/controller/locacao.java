@@ -23,10 +23,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-/**
- *
- * @author Junior
- */
+
 @WebServlet(name = "locacao", urlPatterns = {"/locacao"})
 public class locacao extends HttpServlet {
 

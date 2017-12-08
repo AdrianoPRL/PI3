@@ -1,0 +1,48 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package br.com.candt.model;
+
+
+public class Filial {
+
+    private Integer id;
+    private String nome;
+    private String local;
+
+    public Filial() {
+    }
+
+    public Filial(Integer id, String nome, String local) {
+        this.id = id;
+        this.nome = nome;
+        this.local = local;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getLocal() {
+        return local;
+    }
+
+    public void setLocal(String local) {
+        this.local = local;
+    }
+
+}
