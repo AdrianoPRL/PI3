@@ -37,11 +37,7 @@
                         </div>
                         <div class="form-group">
                             <div class="col-sm-offset-3 col-sm-10">
-                                <div class="lembrar">
-                                    <label>
-                                        <input type="checkbox" name="lembrar" value="true"> lembra-se de mim
-                                    </label>
-                                </div>
+                                
                             </div>
                         </div>
                         <div class="form-group">
